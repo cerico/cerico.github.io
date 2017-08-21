@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">cerico | Dockerize VI - Provision on Exoscale</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font-size:112.5%;line-height:1.65em;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:normal;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:2.475rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:2.475rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.65rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.65rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.65rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.65rem;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}ul{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;padding:1.65rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:1rem;line-height:1.65rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}blockquote{margin-left:1.65rem;margin-right:1.65rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.65rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.65rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}li > ul{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}code{font-size:0.85rem;line-height:1.65rem;}kbd{font-size:0.85rem;line-height:1.65rem;}samp{font-size:0.85rem;line-height:1.65rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.1rem;padding-right:1.1rem;padding-top:0.825rem;padding-bottom:calc(0.825rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:Consolas,"Roboto Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:"";}</style><link href="//fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet" type="text/css"/><style>@import url(https://fonts.googleapis.com/css?family=Raleway);.hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}.hljs-comment,.hljs-quote{color:#aeaeae;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#e28964}.hljs-string{color:#65b042}.hljs-subst{color:#daefa3}.hljs-link,.hljs-regexp{color:#e9c062}.hljs-name,.hljs-section,.hljs-tag,.hljs-title{color:#89bdff}.hljs-class .hljs-title,.hljs-doctag{text-decoration:underline}.hljs-bullet,.hljs-number,.hljs-symbol{color:#3387cc}.hljs-params,.hljs-template-variable,.hljs-variable{color:#3e87e3}.hljs-attribute{color:#cda869}.hljs-meta{color:#8996a8}.hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}.hljs-addition{background-color:#253b22;color:#f8f8f8}.hljs-deletion{background-color:#420e09;color:#f8f8f8}.hljs-selector-class{color:#9b703f}.hljs-selector-id{color:#8b98ab}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}*{font-family:Georgia,sans-serif}body{background:#fcfcfa;color:#333;font-family:PT Serif,serif;line-height:1.2em;margin:1em auto 4em;max-width:720px;padding:0 18px;position:relative}pre{background:#000;color:#f8f8f8}pre *{font-family:Consolas,Roboto Mono,Liberation Mono,Menlo,Courier,monospace}h1,h2{text-rendering:optimizeLegibility}.topper{font-family:PT Sans,sans-serif;font-size:64px;font-weight:300;letter-spacing:-2px;line-height:1em;margin:.5em 0}a{text-decoration:none;color:#6495ed}.markdown{margin-top:27.2px;margin-top:1.7rem}</style></head><body><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-465554842"><div class="headroom-wrapper" data-reactid="2"><div style="position:relative;top:0;left:0;right:0;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);" class="headroom headroom--unfixed" data-reactid="3"><a class="topper" href="/" data-reactid="4">cerico</a></div></div><hr style="margin-top:1.07rem;" data-reactid="5"/><p style="margin-bottom:0.33rem;" data-reactid="6"><a href="/about/" data-reactid="7"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="8"/></a><span data-reactid="9"><!-- react-text: 10 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="11"></a></span></p><div data-reactid="12"><div data-reactid="13"><span data-reactid="14"><a href="/" data-reactid="15">Posts | </a><a href="/about/" data-reactid="16">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="17">Contact</a></div></div><div class="markdown" data-reactid="18"><!-- react-empty: 19 --><h1 data-reactid="20">Dockerize VI - Provision on Exoscale</h1><div data-reactid="21"><p>I usually use Digital Ocean and AWS, and we’ll run through both of those but we’ll start off with <a href="exoscale.ch">https://www.exoscale.ch/</a> as they were kind enough to give me $10 credit and its always a good idea to try alternatives out.</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ <span class="hljs-keyword">cat</span> bin/exo/provision.<span class="hljs-keyword">sh</span>
+</code></pre>
+<pre><code>source config/mars.env
+
+docker-machine create --driver exoscale \
+  -<span class="ruby">-exoscale-api-key=$exoscaleApiKey \
+</span>  -<span class="ruby">-exoscale-api-secret-key=$exoscaleApiSecret \
+</span>  -<span class="ruby">-exoscale-image coreos-stable-<span class="hljs-number">1298</span> \
+</span>  -<span class="ruby">-exoscale-instance-profile tiny \
+</span>  -<span class="ruby">-exoscale-disk-size <span class="hljs-number">10</span> \
+</span>  -<span class="ruby">-exoscale-ssh-user core \
+</span>  kemerovo
+</code></pre>
+<p>Most of these commands can be found at either docker’s github repo or the exoscale site. I had to do a bit of trial and error as I wanted the CoreOS image and not the default ubuntu. This will create us a docker host on exoscale, named ‘kemerovo’, because I like the name. We’ll need to source our apikey and secret from a conf file - making sure its added to .gitignore so we don’t publish it. I have a template env file.</p>
+<pre><code>➜  marsden git:(master) ✗ cat config/mars<span class="hljs-selector-class">.env</span><span class="hljs-selector-class">.template</span>
+</code></pre>
+<pre><code><span class="hljs-attr">digital_ocean_machine</span>=
+<span class="hljs-attr">aws_machine</span>=
+<span class="hljs-attr">aws_access_key_id</span>=
+<span class="hljs-attr">aws_secret_access_key</span>=
+<span class="hljs-attr">digitalocean-access-token</span>=
+<span class="hljs-attr">exo_machine</span>=
+<span class="hljs-attr">exoscaleApiKey</span>=
+<span class="hljs-attr">exoscaleApiSecret</span>=
+</code></pre>
+<p>API Credentials</p>
+<p>These can be found at <a href="https://portal.exoscale.ch/account/profile/api">https://portal.exoscale.ch/account/profile/api</a></p>
+<p><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/exo.png" alt="exo"></p>
+<p>Now, hopefully we should be able to see our docker-machine.</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ docker-machine <span class="hljs-keyword">ls</span>
+</code></pre>
+<pre><code>NAME     ACTIVE   DRIVER      STATE   URL   SWARM   DOCKER    ERRORS
+alsace     -        amazonec2      Running   tcp://<span class="hljs-number">34.226</span><span class="hljs-meta">.192</span><span class="hljs-meta">.29</span>:<span class="hljs-number">2376</span>             v17<span class="hljs-meta">.05</span><span class="hljs-meta">.0</span>-ce
+barnowl    -        digitalocean   Running   tcp://<span class="hljs-number">139.59</span><span class="hljs-meta">.189</span><span class="hljs-meta">.142</span>:<span class="hljs-number">2376</span>            v1<span class="hljs-meta">.12</span><span class="hljs-meta">.6</span>
+coffee     -        virtualbox     Running   tcp://<span class="hljs-number">192.168</span><span class="hljs-meta">.99</span><span class="hljs-meta">.100</span>:<span class="hljs-number">2376</span>            v17<span class="hljs-meta">.06</span><span class="hljs-meta">.0</span>-ce
+kemerovo   -        exoscale       Running   tcp://<span class="hljs-number">159.100</span><span class="hljs-meta">.252</span><span class="hljs-meta">.246</span>:<span class="hljs-number">2376</span>           v1<span class="hljs-meta">.12</span><span class="hljs-meta">.6</span>
+</code></pre>
+<p>We can see our kemerovo docker machine running here on exoscale, succesfully provisioned. So now we want to be able to push our app to it. We can push to any of our docker machines, locally or in the cloud.</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ <span class="hljs-keyword">cat</span> Makefile
+</code></pre>
+<pre><code>start:
+	docker-compose up
+
+bundle:
+	cd<span class="hljs-built_in"> client </span>&amp;&amp; npm <span class="hljs-builtin-name">run</span> build
+
+build:
+	docker-compose build &amp;&amp; docker-compose up
+
+deploy-do:
+	./bin/digital_ocean/deploy.sh
+
+deploy-aws:
+	./bin/aws/deploy.sh
+
+deploy-exo:
+	./bin/exo/deploy.sh
+</code></pre>
+<p>In the makefile, i’ve linked deploy scripts for 3 providers. I’ve left provisioning out of the makefile for now, at least until we introduce Ansible. To deploy our containerized app to exoscale, we can just run ‘make deploy-exo’, which will run the deploy script.</p>
+<h2>Deploy Scripts</h2>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ <span class="hljs-keyword">cat</span> bin/exo/deploy.<span class="hljs-keyword">sh</span>
+</code></pre>
+<pre><code><span class="hljs-keyword">source</span> config/mars.<span class="hljs-keyword">env</span>
+<span class="hljs-keyword">eval</span> $(docker-machine <span class="hljs-keyword">env</span> $exo_machine)
+docker-compose -f docker-compose.prod.yml build &amp;&amp; docker-compose -f docker-compose.prod.yml up -d
+<span class="hljs-keyword">eval</span> $(docker-machine <span class="hljs-keyword">env</span> -u)
+</code></pre>
+<p>This will set our active docker-machine to be kemerovo, for the lifetime of the script only. It will the production versions of the docker-compose script (docker-compose.prod.yml), and it will run it in a detached state (-d), as we want to run it as a background job. Let’s look at the production docker-compose.yml.</p>
+<h2>Compose file</h2>
+<pre><code>➜  <span class="hljs-selector-tag">marsden</span> <span class="hljs-selector-tag">git</span><span class="hljs-selector-pseudo">:(master)</span> ✗ <span class="hljs-selector-tag">cat</span> <span class="hljs-selector-tag">docker-compose</span><span class="hljs-selector-class">.prod</span><span class="hljs-selector-class">.yml</span>
+</code></pre>
+<pre><code>version: <span class="hljs-string">"2"</span>
+services:
+
+    web:
+        build: .<span class="hljs-built_in">/client
+</span>        restart: always
+
+    clojure:
+        build: ./clojure
+        restart: always
+
+    nginx:
+        build: .<span class="hljs-built_in">/proxy
+</span>        restart: always
+        ports:
+            - <span class="hljs-string">"80:80"</span>
+        links:
+            - web
+            - clojure
+</code></pre>
+<p>Essentially the same as the dev compose file, with four main differences. Firstly, we’re no longer mounting volumes or attempting to access either the client or server containers directly. Secondly, we’re not specifying a dockerfile, which means the default Dockerfile for each container will be used instead of eg Dockerfile.dev</p>
+<p>Thirdly, the nginx container is going to be listening on port 80, not 3100, so we can access it via url. Fourthly, we have a restart always command. As we’re running these in the background, if we reboot or there is a problem with anything we want the containers to restart automatically</p>
+<h2>Nginx</h2>
+<p>Lets look at nginx again this time, at the production version of our mars.conf</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ <span class="hljs-keyword">cat</span> proxy/sites-enabled/mars.<span class="hljs-keyword">conf</span>
+</code></pre>
+<pre><code><span class="hljs-attribute">upstream</span> front {
+    <span class="hljs-attribute">server</span> web:<span class="hljs-number">5000</span>;
+}
+
+<span class="hljs-attribute">upstream</span> back {
+    <span class="hljs-attribute">server</span> clojure:<span class="hljs-number">3009</span>;
+}
+
+<span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+    <span class="hljs-attribute">server_name</span> mars.io37.ml mars.io37.cf mars.cuya.ml;
+    <span class="hljs-attribute">location</span> / {
+        <span class="hljs-attribute">proxy_pass</span> http://front;
+    }
+    <span class="hljs-attribute">location</span> /clojure {
+        <span class="hljs-attribute">proxy_pass</span>   http://back;
+    }
+}
+</code></pre>
+<p>Here again we see that nginx is going to be listening on port 80 for traffic for 3 specific urls, <a href="http://mars.io37.ml">mars.io37.ml</a>, <a href="http://mars.io137.cf">mars.io137.cf</a>, and <a href="http://mars.cuya.ml">mars.cuya.ml</a> (the DO, AWS and exoscale instances)</p>
+<p><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/dns.png" alt="dns"></p>
+<p>Free domains are available at <a href="http://dot.tk">http://dot.tk</a>, but they don’t allow wildcard subdomains on the free plan, so here I’ve added in ‘mars’ by name.</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) ✗ <span class="hljs-keyword">cat</span> proxy/default.<span class="hljs-keyword">conf</span>
+</code></pre>
+<pre><code><span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+    <span class="hljs-attribute">root</span> /usr/share/nginx/html;
+    <span class="hljs-attribute">server_name</span> <span class="hljs-regexp">*.io</span>37.ml <span class="hljs-regexp">*.io</span>37.cf <span class="hljs-regexp">*.cuya.ml</span>;
+    <span class="hljs-attribute">location</span> / {
+        <span class="hljs-attribute">index</span> index.html;
+    }
+}
+</code></pre>
+<p>Now when we look at our default.conf we can see that if anyone attempts to reach any subdomains they will get an index.html just saying ‘mars!’. We can add more subdomains pointing to other containers, as we see fit - and put a generic message here.</p>
+<h2>AWS + DO</h2>
+<p>Digital Ocean is much the same, provision script</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) <span class="hljs-keyword">cat</span> bin/digital_ocean/provision.<span class="hljs-keyword">sh</span>
+</code></pre>
+<pre><code>source config/mars.env
+
+docker-machine create <span class="hljs-attribute">--driver</span>=digitalocean \
+<span class="hljs-attribute">--digitalocean-access-token</span>=<span class="hljs-variable">$digitalocean</span>-access-token \
+<span class="hljs-attribute">--digitalocean-image</span>=coreos-stable \
+<span class="hljs-attribute">--digitalocean-region</span>=lon1 \
+<span class="hljs-attribute">--digitalocean-size</span>=1GB \
+<span class="hljs-attribute">--digitalocean-ssh-user</span>=core barnowl
+</code></pre>
+<p>and deploy</p>
+<pre><code>➜  marsden gi<span class="hljs-variable">t:</span>(master) <span class="hljs-keyword">cat</span> bin/digital_ocean/deploy.<span class="hljs-keyword">sh</span>
+</code></pre>
+<pre><code><span class="hljs-keyword">source</span> config/mars.<span class="hljs-keyword">env</span>
+<span class="hljs-keyword">eval</span> $(docker-machine <span class="hljs-keyword">env</span> $digital_ocean_machine)
+docker-compose -f docker-compose.prod.yml build &amp;&amp; docker-compose -f docker-compose.prod.yml up -d
+<span class="hljs-keyword">eval</span> $(docker-machine <span class="hljs-keyword">env</span> -u)
+</code></pre>
+<p>Next</p>
+<p>In the next post we’ll look at streamlining the orchestration, management and provisioning of our docker machines with Ansible.</p>
+</div></div></div></div><script src="/bundle.js?t=1503350239111"></script></body></html>
