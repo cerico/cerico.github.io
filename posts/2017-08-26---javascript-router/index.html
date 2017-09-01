@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">cerico | How to build a JS Router</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font-size:112.5%;line-height:1.65em;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:normal;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:2.475rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:2.475rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.65rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.65rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.65rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.65rem;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}ul{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;padding:1.65rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:1rem;line-height:1.65rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}blockquote{margin-left:1.65rem;margin-right:1.65rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.65rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.65rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}li > ul{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}code{font-size:0.85rem;line-height:1.65rem;}kbd{font-size:0.85rem;line-height:1.65rem;}samp{font-size:0.85rem;line-height:1.65rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.1rem;padding-right:1.1rem;padding-top:0.825rem;padding-bottom:calc(0.825rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:Consolas,"Roboto Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:"";}</style><link href="//fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet" type="text/css"/><style>@import url(https://fonts.googleapis.com/css?family=Raleway);.hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}.hljs-comment,.hljs-quote{color:#aeaeae;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#e28964}.hljs-string{color:#65b042}.hljs-subst{color:#daefa3}.hljs-link,.hljs-regexp{color:#e9c062}.hljs-name,.hljs-section,.hljs-tag,.hljs-title{color:#89bdff}.hljs-class .hljs-title,.hljs-doctag{text-decoration:underline}.hljs-bullet,.hljs-number,.hljs-symbol{color:#3387cc}.hljs-params,.hljs-template-variable,.hljs-variable{color:#3e87e3}.hljs-attribute{color:#cda869}.hljs-meta{color:#8996a8}.hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}.hljs-addition{background-color:#253b22;color:#f8f8f8}.hljs-deletion{background-color:#420e09;color:#f8f8f8}.hljs-selector-class{color:#9b703f}.hljs-selector-id{color:#8b98ab}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}*{font-family:Georgia,sans-serif}body{background:#fcfcfa;color:#333;font-family:PT Serif,serif;line-height:1.2em;margin:1em auto 4em;max-width:720px;padding:0 18px;position:relative}pre{background:#000;color:#f8f8f8}pre *{font-family:Consolas,Roboto Mono,Liberation Mono,Menlo,Courier,monospace}h1,h2{text-rendering:optimizeLegibility}.topper{font-family:PT Sans,sans-serif;font-size:64px;font-weight:300;letter-spacing:-2px;line-height:1em;margin:.5em 0}a{text-decoration:none;color:#6495ed}.markdown{margin-top:27.2px;margin-top:1.7rem}</style></head><body><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-1893752746"><div class="headroom-wrapper" data-reactid="2"><div style="position:relative;top:0;left:0;right:0;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);" class="headroom headroom--unfixed" data-reactid="3"><a class="topper" href="/" data-reactid="4">cerico</a></div></div><hr style="margin-top:1.07rem;" data-reactid="5"/><p style="margin-bottom:0.33rem;" data-reactid="6"><a href="/about/" data-reactid="7"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="8"/></a><span data-reactid="9"><!-- react-text: 10 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="11"></a></span></p><div data-reactid="12"><div data-reactid="13"><span data-reactid="14"><a href="/" data-reactid="15">Posts | </a><a href="/about/" data-reactid="16">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="17">Contact</a></div></div><div class="markdown" data-reactid="18"><!-- react-empty: 19 --><h1 data-reactid="20">How to build a JS Router</h1><div data-reactid="21"><h2>Introduction.</h2>
+<p>In this application we’ll learn how to build a client-side router with vanilla Javascript. We have 3 main requirements</p>
+<ul>
+<li>It should link us to a new page without a server visit</li>
+<li>It should handle the back button</li>
+<li>It should handle page refreshes and direct linking</li>
+</ul>
+<h2>Pre-requisites.</h2>
+<p>Npm and Node. These are the versions I’m running</p>
+<pre><code>➜  ~ <span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
+v7.<span class="hljs-number">7.2</span>
+➜  ~ npm -v
+<span class="hljs-number">5.3</span>.<span class="hljs-number">0</span>
+</code></pre>
+<h2>TLDR / Repo</h2>
+<p>Repo is at <a href="https://github.com/cerico/how-to-js-router">https://github.com/cerico/how-to-js-router</a></p>
+<h2>Initial Setup</h2>
+<pre><code>➜  how-to-js-router git:(dev) tree
+.
+├── package-lock<span class="hljs-selector-class">.json</span>
+├── package<span class="hljs-selector-class">.json</span>
+├── src
+│   ├── index<span class="hljs-selector-class">.html</span>
+│   └── js
+│       └── index<span class="hljs-selector-class">.js</span>
+└── webpack
+    └── webpack<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>
+
+<span class="hljs-number">3</span> directories, <span class="hljs-number">5</span> files
+</code></pre>
+<pre><code>package<span class="hljs-selector-class">.json</span>
+
+  <span class="hljs-string">"scripts"</span>: {
+    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"webpack-dev-server --config webpack/webpack.config.js --open"</span>
+  },
+   <span class="hljs-string">"devDependencies"</span>: {
+    <span class="hljs-string">"webpack"</span>: <span class="hljs-string">"^3.5.5"</span>,
+    <span class="hljs-string">"webpack-dev-server"</span>: <span class="hljs-string">"^2.7.1"</span>
+  }
+</code></pre>
+<p>We just need webpack and webpack-dev-server, so jump ahead and install those with npm install.</p>
+<pre><code>➜  how-to-js-router git:(master) cat webpack/webpack<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>
+</code></pre>
+<pre><code>module.exports = <span class="hljs-keyword">options</span> =&gt; {
+  <span class="hljs-keyword">return</span> {
+    entry: <span class="hljs-string">'./src/js/index.js'</span>,
+    outpu<span class="hljs-variable">t:</span> {
+      filename: <span class="hljs-string">'bundle.js'</span>,
+    },
+    devtoo<span class="hljs-variable">l:</span> <span class="hljs-string">'source-map'</span>,
+    devServer: {
+       por<span class="hljs-variable">t:</span> <span class="hljs-number">2013</span>,
+       hos<span class="hljs-variable">t:</span> <span class="hljs-string">'0.0.0.0'</span>,
+        historyApiFallback: {
+          <span class="hljs-built_in">index</span>: <span class="hljs-string">'src/index.html'</span>,
+      },
+    },
+  }
+}
+</code></pre>
+<p>I’m assuming webpack knowledge here, but for an explanation of this setup, check  <a href="../2017-08-31---simple-webpack-setup/">How To Webpack</a></p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) <span class="hljs-keyword">cat</span> src/js/<span class="hljs-built_in">index</span>.js
+</code></pre>
+<pre><code>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Index {
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){
+      <span class="hljs-keyword">let</span> header = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'header'</span>)
+      <span class="hljs-keyword">let</span> main = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>)
+      header.innerHTML = <span class="hljs-string">"header"</span>
+    }
+
+
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">new</span> Index()
+});
+</code></pre>
+<p>This is our view before we add the router, we should be outputting the word text to screen, and nothing more.</p>
+<h2>I - Click Event</h2>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/delph.js
+</code></pre>
+<pre><code><span class="hljs-builtin-name">export</span> class Delph {
+
+    constructor(el){
+        this.el = el
+    }
+
+    load(page){
+        this.el.innerHTML =<span class="hljs-built_in"> page
+</span>    }
+}
+</code></pre>
+<p>Here is is the beginning of our router. Its going to be initiated with an element, and have a load function that will attach some html to the element. And we will export it for use in our index file. Thats it for now!</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/<span class="hljs-built_in">index</span>.js
+</code></pre>
+<pre><code><span class="hljs-keyword">import</span> { Delph } <span class="hljs-keyword">from</span> <span class="hljs-string">'./delph'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Index {
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){
+      
+      <span class="hljs-keyword">let</span> main = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>)
+      <span class="hljs-keyword">this</span>.delph = <span class="hljs-keyword">new</span> Delph(main)
+      
+      <span class="hljs-keyword">let</span> header = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'header'</span>)
+      header.innerHTML = <span class="hljs-string">"header"</span>
+      header.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {<span class="hljs-keyword">this</span>.load(<span class="hljs-string">'glossop'</span>)})
+    }
+
+    load(link){
+      <span class="hljs-keyword">this</span>.delph.load(link)
+    }
+
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">new</span> Index()
+});
+</code></pre>
+<p>Returning to the index file, we import our new ‘Delph’ router. We then initiated an instance of the router for us to use., and we pass it the ‘main’ element. We also attach a click event to the header, which will run the load function and pass it some text, ‘glossop’. The load function passes this text to our nascent router’s load function, which will attach it to the ‘main’ element we passed it earlier.</p>
+<h2>This branch can be found here (pic)
+II - Routes</h2>
+<p>So now we have a placeholder, where our router is going to live, but now we need to pass it some routes so we can display something other ‘glossop’. Lets make a routes object.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/routes.js
+</code></pre>
+<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> routes = {
+    glossop: <span class="hljs-string">'derbyshire'</span>,
+    kendal:  <span class="hljs-string">'cumbria'</span>,
+    hereford:  <span class="hljs-string">'herefordshire'</span>,
+    malton:  <span class="hljs-string">'north yorkshire'</span>
+}
+</code></pre>
+<p>Four named routes, each will return the county they are in when accessed. Now lets import this into our index.js file, and pass it to our Delph router.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/<span class="hljs-built_in">index</span>.js
+</code></pre>
+<pre><code><span class="hljs-keyword">import</span> { Delph } <span class="hljs-keyword">from</span> <span class="hljs-string">'./delph'</span>
+<span class="hljs-keyword">import</span> { routes } <span class="hljs-keyword">from</span> <span class="hljs-string">'./routes'</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Index {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){      
+      <span class="hljs-keyword">var</span> header = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'header'</span>)
+      <span class="hljs-keyword">var</span> main = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>)
+      header.innerHTML = <span class="hljs-string">"header"</span>
+      header.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {<span class="hljs-keyword">this</span>.load(<span class="hljs-string">'glossop'</span>)})
+      <span class="hljs-keyword">this</span>.delph = <span class="hljs-keyword">new</span> Delph(routes,main)
+    }
+    load(link){
+      <span class="hljs-keyword">this</span>.delph.load(link)
+    }
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">new</span> Index()
+});
+</code></pre>
+<pre><code>➜  how-to-js-router git:(dev) ✗ cat src/js/delph.js
+<span class="hljs-builtin-name">export</span> class Delph {
+
+    constructor(routes,el){
+        this.routes = routes
+        this.el = el
+    }
+
+    load(page){
+        this.el.innerHTML =<span class="hljs-built_in"> page
+</span>    }
+}
+</code></pre>
+<p>Great, so now we’ve passed it the routes, but the click event is still just passing it ‘glossop’. And, with ‘header’ we  only have one link to click on!</p>
+<h2>III - Links</h2>
+<p>Lets populate the header with a link for each route. We could make an array with each of the named routes, and iterate over them, attaching a click handler. But we already have a routes object, so lets iterate over that instead.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/<span class="hljs-built_in">index</span>.js
+</code></pre>
+<pre><code><span class="hljs-keyword">import</span> { Delph } <span class="hljs-keyword">from</span> <span class="hljs-string">'./delph'</span>
+<span class="hljs-keyword">import</span> { routes } <span class="hljs-keyword">from</span> <span class="hljs-string">'./routes'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Index {
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){
+      <span class="hljs-keyword">var</span> main = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'main'</span>)
+      <span class="hljs-keyword">this</span>.delph = <span class="hljs-keyword">new</span> Delph(routes,main)
+      <span class="hljs-keyword">this</span>.makeHeader(routes)
+    }
+
+    makeHeader(routes){
+      <span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'header'</span>)
+      <span class="hljs-built_in">Object</span>.keys(routes).map(<span class="hljs-function"><span class="hljs-params">route</span> =&gt;</span> {
+        <span class="hljs-keyword">var</span> e = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"li"</span>);
+        e.innerHTML = route
+        e.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {<span class="hljs-keyword">this</span>.load(route)})
+        el.appendChild(e);
+      })
+    }
+
+    load(link){
+      <span class="hljs-keyword">this</span>.delph.load(link)
+    }
+
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">new</span> Index()
+});
+</code></pre>
+<p>Here, we pass our routes object to a makeHeader function, which iterates over each, and creates a click handler for each link, passing its route to the load function. But we don’t want to display the key, or route name - we want to display the data assocated with it. So we can modify the router to do this, by finding the data associated with the route we have been passed.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) <span class="hljs-keyword">cat</span> src/js/delph.js
+</code></pre>
+<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Delph</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(routes,el){
+        <span class="hljs-keyword">this</span>.routes = routes
+        <span class="hljs-keyword">this</span>.el = el
+    }
+
+    load(page){
+        const <span class="hljs-keyword">data</span> = <span class="hljs-keyword">this</span>.routes[page]
+        <span class="hljs-keyword">this</span>.el.innerHTML = <span class="hljs-keyword">data</span>
+    }
+}
+</code></pre>
+<p>III -  Fetch</p>
+<p>Great, we now have a working router. Which works just fine…but we’re fairly limited and have to add all our page data inside the routes object, which is going to get pretty unwieldly. A better approach is to put our html into template files, and use fetch to retrieve them.</p>
+<pre><code>➜  how-to-js-router git:(dev) ✗ tree src/views
+src/views
+├── glossop<span class="hljs-selector-class">.html</span>
+├── hereford<span class="hljs-selector-class">.html</span>
+├── kendal<span class="hljs-selector-class">.html</span>
+└── malton<span class="hljs-selector-class">.html</span>
+
+<span class="hljs-number">0</span> directories, <span class="hljs-number">4</span> files
+</code></pre>
+<pre><code>➜  how-to-js-router git:(dev) ✗ cat src/views/glossop.html
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: cornflowerblue;display:block"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>glossop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>hadfield<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<p>Now we can have an easily readable html file and use fetch to insert it into the page. We’ll need to create a Page component, to handle this.</p>
+<pre><code>➜  how-to-js-router git:(dev) ✗ cat src/js/page.js
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Page</span> </span>{
+  <span class="hljs-keyword">constructor</span>(url) {
+    <span class="hljs-keyword">this</span>.url = <span class="hljs-string">`src/views/<span class="hljs-subst">${url}</span>.html`</span>;
+  }
+
+  load() {
+    <span class="hljs-keyword">return</span> fetch(<span class="hljs-keyword">this</span>.url).then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.text())
+    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-keyword">this</span>.html = data)
+    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Booo"</span>))
+  }
+
+  show(el) {
+    el.innerHTML = <span class="hljs-keyword">this</span>.html;
+  }
+}
+</code></pre>
+<p>So whats happening here? We have three main parts to go through</p>
+<ul>
+<li>constructor - when a new instance of the page is initiated, it will be passed a url, e.g ‘hereford’, we’ll turn this into a useable path - ‘views/hereford.html’.</li>
+<li>load - the url that the html lives at. Once this is retrieved we’ll attach store the returned html in ‘this.html’.</li>
+<li>show - This attaches the html to whatever element it is passed.</li>
+</ul>
+<p>Now lets updated the routes file to use the Page component.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router git:(dev) ✗ cat src/js/routes.js
+<span class="hljs-keyword">import</span> { Page } <span class="hljs-keyword">from</span> <span class="hljs-string">'./page'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> routes = {
+    glossop: <span class="hljs-keyword">new</span> Page(<span class="hljs-string">'glossop'</span>),
+    kendal:  <span class="hljs-keyword">new</span> Page(<span class="hljs-string">'kendal'</span>),
+    hereford: <span class="hljs-keyword">new</span> Page(<span class="hljs-string">'hereford'</span>),
+    malton:  <span class="hljs-keyword">new</span> Page(<span class="hljs-string">'malton'</span>)
+}
+</code></pre>
+<p>So, now each of our routes creates an instance of the Page component, which will handle retrieving the appropriate html via fetch.</p>
+<p>And if we update the Delph router</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/delph.js
+</code></pre>
+<pre><code><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Delph</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(routes,el){
+        <span class="hljs-keyword">this</span>.routes = routes
+        <span class="hljs-keyword">this</span>.el = el
+    }
+
+    load(page){
+        <span class="hljs-keyword">let</span> route =  <span class="hljs-keyword">this</span>.routes[page]
+        route.load().then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(r))
+    }
+}
+</code></pre>
+<p>Instead of attaching text directly, we have access to each route’s Page object, and load function, which will return us the html. From there its a short step to sending that back to the Page object’s show function, along with the element we’d like it attached to.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ <span class="hljs-keyword">cat</span> src/js/delph.js
+</code></pre>
+<pre><code><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Delph</span> </span>{
+
+    <span class="hljs-keyword">constructor</span>(routes,el){
+        <span class="hljs-keyword">this</span>.routes = routes
+        <span class="hljs-keyword">this</span>.el = el
+    }
+
+    load(page){
+        <span class="hljs-keyword">let</span> route =  <span class="hljs-keyword">this</span>.routes[page]
+        route.load().then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> route.show(<span class="hljs-keyword">this</span>.el))
+    }
+}
+</code></pre>
+<h2>Next</h2>
+<p>In part II we’ll look at updating the url, and handling refreshing and permanent links.</p>
+</div><div data-reactid="22"><div data-reactid="23"><span data-reactid="24"><!-- react-text: 25 -->Tags: <!-- /react-text --><span data-reactid="26"><a href="/tags/#javascript" data-reactid="27">javascript</a><span data-reactid="28">  </span></span></span></div><hr style="margin-top:1.07rem;" data-reactid="29"/><p style="margin-bottom:0.33rem;" data-reactid="30"><a href="/about/" data-reactid="31"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="32"/></a><span data-reactid="33"><!-- react-text: 34 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="35"></a></span></p><div data-reactid="36"><div data-reactid="37"><span data-reactid="38"><a href="/" data-reactid="39">Posts | </a><a href="/about/" data-reactid="40">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="41">Contact</a></div></div></div></div></div></div><script src="/bundle.js?t=1504267010677"></script></body></html>
