@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">cerico | JS Router Part Two - Refresh</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font-size:112.5%;line-height:1.65em;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:normal;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:2.475rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:2.475rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.65rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.65rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.65rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.65rem;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}ul{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;padding:1.65rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:1rem;line-height:1.65rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}blockquote{margin-left:1.65rem;margin-right:1.65rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.65rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.65rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}li > ul{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}code{font-size:0.85rem;line-height:1.65rem;}kbd{font-size:0.85rem;line-height:1.65rem;}samp{font-size:0.85rem;line-height:1.65rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.1rem;padding-right:1.1rem;padding-top:0.825rem;padding-bottom:calc(0.825rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:Consolas,"Roboto Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:"";}</style><link href="//fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet" type="text/css"/><style>@import url(https://fonts.googleapis.com/css?family=Raleway);.hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}.hljs-comment,.hljs-quote{color:#aeaeae;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#e28964}.hljs-string{color:#65b042}.hljs-subst{color:#daefa3}.hljs-link,.hljs-regexp{color:#e9c062}.hljs-name,.hljs-section,.hljs-tag,.hljs-title{color:#89bdff}.hljs-class .hljs-title,.hljs-doctag{text-decoration:underline}.hljs-bullet,.hljs-number,.hljs-symbol{color:#3387cc}.hljs-params,.hljs-template-variable,.hljs-variable{color:#3e87e3}.hljs-attribute{color:#cda869}.hljs-meta{color:#8996a8}.hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}.hljs-addition{background-color:#253b22;color:#f8f8f8}.hljs-deletion{background-color:#420e09;color:#f8f8f8}.hljs-selector-class{color:#9b703f}.hljs-selector-id{color:#8b98ab}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}*{font-family:Fira Sans,sans-serif}body{color:#5f5c5c;font-family:PT Serif,serif;line-height:1.2em;margin:1em auto 4em;padding:0 18px;position:relative}pre{background:#000;color:#f8f8f8}pre *{font-family:Consolas,Roboto Mono,Liberation Mono,Menlo,Courier,monospace}h1,h2{text-rendering:optimizeLegibility}.inverse-topper,.topper{font-family:PT Sans,sans-serif;font-size:64px;font-weight:300;letter-spacing:-2px;line-height:1em;margin:.5em 0}.inverse-topper{color:#fff}.markdown{margin-top:23.8px;margin-top:1.7rem}body{font-family:Fira Sans,sans-serif;font-weight:300;margin:0;background:#fff;color:#3a3a3a;margin-bottom:126px;margin-bottom:9rem}header[role=banner]{background:#6495ed;padding:22px 0 0;margin-top:12px;height:112px;height:8rem;text-align:center;color:#fff}header[role=banner] h1{margin:0}header[role=banner] h3{font-size:37.8px;font-size:2.7rem}header{font-family:Raleway,sans-serif;font-weight:100;text-rendering:optimizeLegibility;line-height:1;margin-top:0}a,header{color:#6495ed}a{outline:none;transition:color .3s ease;text-decoration:none}h1{font-weight:300;font-size:70px;font-size:5rem;margin:0;font-family:Raleway,sans-serif;font-weight:100;color:#6495ed;text-rendering:optimizeLegibility}h1,h3{line-height:1}h3{font-size:37.8px;font-size:2.7rem;color:#5f5c5c;font-weight:"Fira Sans",sans-serif;font-weight:300}html{font-size:14px}article,main{display:block}.content{max-width:900px}.content,.page-content{margin:14px auto;margin:1rem auto}.page-content{max-width:720px}.post{position:relative;width:80%;margin:42px auto;margin:3rem auto;padding-bottom:42px;padding-bottom:3rem;border-bottom:1px solid #ccc;word-break:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}.post-meta{display:inline-block;margin:0 0 5px;font-size:28px;font-size:2rem;color:#9eabb3}.post-meta a{color:#9eabb3;text-decoration:none}.post-title{margin:0;color:#6495ed}h2{font-size:56px;font-size:4rem}section{max-width:960px;margin:auto}.post-excerpt p{margin:22.4px 0 0;margin:1.6rem 0 0;line-height:22.4px;line-height:1.6rem}dl,ol,p,ul{margin:22.4px 0;margin:1.6rem 0;font-size:17.92px;font-size:1.28rem;line-height:1.6}header h1,header h3{color:#fff}</style></head><body><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-1009257228"><div class="headroom-wrapper" data-reactid="2"><div style="position:relative;top:0;left:0;right:0;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);" class="headroom headroom--unfixed" data-reactid="3"><header role="banner" data-reactid="4"><a class="inverse-topper" href="/" data-reactid="5">cerico</a></header></div></div><div style="margin-left:2%;" data-reactid="6"><p style="margin-bottom:0.33rem;" data-reactid="7"><a href="/about/" data-reactid="8"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="9"/></a><span data-reactid="10"><!-- react-text: 11 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="12"></a></span></p><div data-reactid="13"><div data-reactid="14"><span data-reactid="15"><a href="/" data-reactid="16">Posts | </a><a href="/about/" data-reactid="17">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="18">Contact</a></div></div></div><div class="markdown page-content" data-reactid="19"><!-- react-empty: 20 --><div data-reactid="21"><div style="font-size:2rem;color:#9EABB3;margin-bottom:1px;text-align:center;" data-reactid="22"><!-- react-text: 23 -->2 Sep 2017<!-- /react-text --><!-- react-text: 24 --> in <!-- /react-text --><span style="display:inline;" data-reactid="25"><span style="margin-right:8px;line-height:1.5;" data-reactid="26"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="27">Javascript</a><span data-reactid="28">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="29"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="30">ES6</a><span data-reactid="31"></span></span></span></div></div><h1 style="font-size:4rem;margin-bottom:1rem;margin-top:2rem;" data-reactid="32">JS Router Part Two - Refresh</h1><div data-reactid="33"><p>In part 1, our client side router works fine, and loads our html but our URL doesn’t update, which means we don’t have a unique address for any of our pages, we’re always at the root URL. Today we’re going to flesh out our router using pushState and HTML5’s history facility.</p>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">cerico | JS Router Part Two - Refresh</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font-size:112.5%;line-height:1.65em;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:normal;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:2.475rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:2.475rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.65rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.65rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.65rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.65rem;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}ul{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;padding:1.65rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:1rem;line-height:1.65rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}blockquote{margin-left:1.65rem;margin-right:1.65rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.65rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.65rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}li > ul{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}code{font-size:0.85rem;line-height:1.65rem;}kbd{font-size:0.85rem;line-height:1.65rem;}samp{font-size:0.85rem;line-height:1.65rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.1rem;padding-right:1.1rem;padding-top:0.825rem;padding-bottom:calc(0.825rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:Consolas,"Roboto Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:"";}</style><link href="//fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet" type="text/css"/><style>@import url(https://fonts.googleapis.com/css?family=Raleway);.hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}.hljs-comment,.hljs-quote{color:#aeaeae;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#e28964}.hljs-string{color:#65b042}.hljs-subst{color:#daefa3}.hljs-link,.hljs-regexp{color:#e9c062}.hljs-name,.hljs-section,.hljs-tag,.hljs-title{color:#89bdff}.hljs-class .hljs-title,.hljs-doctag{text-decoration:underline}.hljs-bullet,.hljs-number,.hljs-symbol{color:#3387cc}.hljs-params,.hljs-template-variable,.hljs-variable{color:#3e87e3}.hljs-attribute{color:#cda869}.hljs-meta{color:#8996a8}.hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}.hljs-addition{background-color:#253b22;color:#f8f8f8}.hljs-deletion{background-color:#420e09;color:#f8f8f8}.hljs-selector-class{color:#9b703f}.hljs-selector-id{color:#8b98ab}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}*{font-family:Fira Sans,sans-serif}body{color:#5f5c5c;font-family:PT Serif,serif;line-height:1.2em;margin:1em auto 4em;padding:0 18px;position:relative}pre{background:#000;color:#f8f8f8}pre *{font-family:Consolas,Roboto Mono,Liberation Mono,Menlo,Courier,monospace}h1,h2{text-rendering:optimizeLegibility}.inverse-topper,.topper{font-family:PT Sans,sans-serif;font-size:64px;font-weight:300;letter-spacing:-2px;line-height:1em;margin:.5em 0}.inverse-topper{color:#fff}.markdown{margin-top:23.8px;margin-top:1.7rem}body{font-family:Fira Sans,sans-serif;font-weight:300;margin:0;background:#fff;color:#3a3a3a;margin-bottom:126px;margin-bottom:9rem}header[role=banner]{background:#6495ed;padding:22px 0 0;margin-top:12px;height:112px;height:8rem;text-align:center;color:#fff}header[role=banner] h1{margin:0}header[role=banner] h3{font-size:37.8px;font-size:2.7rem}header{font-family:Raleway,sans-serif;font-weight:100;text-rendering:optimizeLegibility;line-height:1;margin-top:0}a,header{color:#6495ed}a{outline:none;transition:color .3s ease;text-decoration:none}h1{font-weight:300;font-size:70px;font-size:5rem;margin:0;font-family:Raleway,sans-serif;font-weight:100;color:#6495ed;text-rendering:optimizeLegibility}h1,h3{line-height:1}h3{font-size:37.8px;font-size:2.7rem;color:#5f5c5c;font-weight:"Fira Sans",sans-serif;font-weight:300}html{font-size:14px}article,main{display:block}.content{max-width:900px}.content,.page-content{margin:14px auto;margin:1rem auto}.page-content{max-width:720px}.post{position:relative;width:80%;margin:42px auto;margin:3rem auto;padding-bottom:42px;padding-bottom:3rem;border-bottom:1px solid #ccc;word-break:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}.post-meta{display:inline-block;margin:0 0 5px;font-size:28px;font-size:2rem;color:#9eabb3}.post-meta a{color:#9eabb3;text-decoration:none}.post-title{margin:0;color:#6495ed}h2{font-size:56px;font-size:4rem}section{max-width:960px;margin:auto}.post-excerpt p{margin:22.4px 0 0;margin:1.6rem 0 0;line-height:22.4px;line-height:1.6rem}dl,ol,p,ul{margin:22.4px 0;margin:1.6rem 0;font-size:17.92px;font-size:1.28rem;line-height:1.6}header h1,header h3{color:#fff}</style></head><body><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="1893858759"><div class="headroom-wrapper" data-reactid="2"><div style="position:relative;top:0;left:0;right:0;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);" class="headroom headroom--unfixed" data-reactid="3"><header role="banner" data-reactid="4"><a class="inverse-topper" href="/" data-reactid="5">cerico</a></header></div></div><div style="margin-left:2%;" data-reactid="6"><p style="margin-bottom:0.33rem;" data-reactid="7"><a href="/about/" data-reactid="8"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="9"/></a><span data-reactid="10"><!-- react-text: 11 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="12"></a></span></p><div data-reactid="13"><div data-reactid="14"><span data-reactid="15"><a href="/" data-reactid="16">Posts | </a><a href="/about/" data-reactid="17">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="18">Contact</a></div></div></div><div class="markdown page-content" data-reactid="19"><!-- react-empty: 20 --><div data-reactid="21"><div style="font-size:2rem;color:#9EABB3;margin-bottom:1px;text-align:center;" data-reactid="22"><!-- react-text: 23 -->2 Sep 2017<!-- /react-text --><!-- react-text: 24 --> in <!-- /react-text --><span style="display:inline;" data-reactid="25"><span style="margin-right:8px;line-height:1.5;" data-reactid="26"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="27">Javascript</a><span data-reactid="28">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="29"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="30">ES6</a><span data-reactid="31"></span></span></span></div></div><h1 style="font-size:4rem;margin-bottom:1rem;margin-top:2rem;" data-reactid="32">JS Router Part Two - Refresh</h1><div data-reactid="33"><p>In part 1, our client side router works fine, and loads our html but our URL doesn’t update, which means we don’t have a unique address for any of our pages, we’re always at the root URL. Today we’re going to flesh out our router using pushState and HTML5’s history facility.</p>
 <hr>
 <h3>Pre-requisites.</h3>
 <p><a href="../2017-08-26---javascript-router/">Part One</a></p>
@@ -176,155 +176,134 @@
     <span class="hljs-number">21</span>	    <span class="hljs-keyword">if</span> (!backButtonUsed){
     <span class="hljs-number">22</span>	      history.pushState({ page}, <span class="hljs-literal">null</span>, <span class="hljs-string">`/<span class="hljs-subst">${page}</span>`</span>);
     <span class="hljs-number">23</span>	    }
-    <span class="hljs-string">``</span><span class="hljs-string">`
-
-Repo at stage 10: [https://github.com/cerico/how-to-js-router/releases/tag/0.10.1](https://github.com/cerico/how-to-js-router/releases/tag/0.10.1)
-
-___
-
-### Using Express
-
-So, our router works in the dev environment, but we don't want to use webpack in production, we'll use express. So first we'll need to install express and path, and create a build script and a production script.
-
-</span></code></pre>
-<p>➜  how-to-js-router git:(eleven-express) ✗ cat -n package.json
-…
-6	  “scripts”: {
-7	    “dev”: “webpack-dev-server --config webpack/webpack.config.js --open”,
-8	    “build”: “webpack --config webpack/webpack.prod.config.js”,
-9	    “prod”: &quot;node server.js&quot;
-10	  },
-…
-21	  “devDependencies”: {
-22	    “webpack”: “^3.5.5”,
-23	    “webpack-dev-server”: &quot;^2.7.1&quot;
-24	  },
-25	  “dependencies”: {
-26	    “path”: “^0.12.7”,
-27	    “express”: &quot;^4.15.3&quot;
-28	  }
-29	}
-…</p>
-<pre><code>
-Production webpack <span class="hljs-keyword">build</span> <span class="hljs-keyword">is</span> very similar <span class="hljs-keyword">to</span> our existing one
-
 </code></pre>
-<p>➜  how-to-js-router git:(eleven-express) ✗ cat webpack/webpack.prod.config.js</p>
-<pre><code></code></pre>
-<p>const path = require(‘path’)</p>
-<p>module.exports = options =&gt; {
-return {
-entry: ‘./src/js/index.js’,
-output: {
-path: path.join(__dirname, ‘…/’, ‘/dist’),
-filename: ‘bundle.js’,
-}
-}
-}</p>
-<pre><code>
-We'll also need <span class="hljs-keyword">to</span> temporaily <span class="hljs-keyword">copy</span> our index.html <span class="hljs-built_in">file</span> <span class="hljs-keyword">into</span> dist, <span class="hljs-keyword">as</span> thats what express <span class="hljs-keyword">is</span> going <span class="hljs-keyword">to</span> serve We need <span class="hljs-keyword">to</span> use <span class="hljs-built_in">path to</span> <span class="hljs-keyword">get</span> an absolute location <span class="hljs-keyword">for</span> <span class="hljs-keyword">the</span> production bundle (<span class="hljs-keyword">in</span> this case, our current directory, <span class="hljs-keyword">then</span> one level up, <span class="hljs-keyword">then</span> dist)
-
+<p>Repo at stage 10: <a href="https://github.com/cerico/how-to-js-router/releases/tag/0.10.1">https://github.com/cerico/how-to-js-router/releases/tag/0.10.1</a></p>
+<p>__</p>
+<h3>Using Express</h3>
+<p>So, our router works in the dev environment, but we don’t want to use webpack in production, we’ll use express. So first we’ll need to install express and path, and create a build script and a production script.</p>
+<pre><code>➜  how-to-js-router git:(eleven-express) ✗ cat -n package.json
+     ...
+      <span class="hljs-number">6</span>	  <span class="hljs-string">"scripts"</span>: {
+     <span class="hljs-number">7</span>	    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"webpack-dev-server --config webpack/webpack.config.js --open"</span>,
+     <span class="hljs-number">8</span>	    <span class="hljs-string">"build"</span>: <span class="hljs-string">"webpack --config webpack/webpack.prod.config.js"</span>,
+     <span class="hljs-number">9</span>	    <span class="hljs-string">"prod"</span>: <span class="hljs-string">"node server.js"</span>
+    <span class="hljs-number">10</span>	  },
+    ...
+    <span class="hljs-number">21</span>	  <span class="hljs-string">"devDependencies"</span>: {
+    <span class="hljs-number">22</span>	    <span class="hljs-string">"webpack"</span>: <span class="hljs-string">"^3.5.5"</span>,
+    <span class="hljs-number">23</span>	    <span class="hljs-string">"webpack-dev-server"</span>: <span class="hljs-string">"^2.7.1"</span>
+    <span class="hljs-number">24</span>	  },
+    <span class="hljs-number">25</span>	  <span class="hljs-string">"dependencies"</span>: {
+    <span class="hljs-number">26</span>	    <span class="hljs-string">"path"</span>: <span class="hljs-string">"^0.12.7"</span>,
+    <span class="hljs-number">27</span>	    <span class="hljs-string">"express"</span>: <span class="hljs-string">"^4.15.3"</span>
+    <span class="hljs-number">28</span>	  }
+    <span class="hljs-number">29</span>	}
+    ...
 </code></pre>
-<p>➜  how-to-js-router git:(eleven-express) ✗ cat server.js</p>
-<pre><code></code></pre>
-<p>const express = require(‘express’);
-const server = express();</p>
-<p>server.use(express.static(‘dist’));
-server.listen(process.env.PORT || 5000);</p>
-<pre><code>
-This serves our production bundle <span class="hljs-keyword">on</span> <span class="hljs-keyword">port</span> <span class="hljs-number">5000</span> - <span class="hljs-keyword">all</span> good, except it doesn<span class="hljs-symbol">'t</span> handle refresh <span class="hljs-keyword">or</span> direct linking. <span class="hljs-keyword">If</span> we remember back <span class="hljs-keyword">to</span> the dev webpack, we had a historyApiFallback rewrite <span class="hljs-keyword">function</span>, sending <span class="hljs-keyword">all</span> requests initiall <span class="hljs-keyword">to</span> index.html, now we need <span class="hljs-keyword">to</span> do something similar here as well. A <span class="hljs-keyword">package</span> we can <span class="hljs-keyword">use</span> <span class="hljs-keyword">for</span> this <span class="hljs-keyword">is</span> connect-history-api-fallback.
-
+<p>Production webpack build is very similar to our existing one</p>
+<pre><code>➜  how-to-js-router git:(eleven-express) ✗ cat webpack/webpack<span class="hljs-selector-class">.prod</span><span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>
 </code></pre>
-<p>how-to-js-router git:(dev) ✗ npm install connect-history-api-fallback</p>
-<pre><code>
-We<span class="hljs-symbol">'ll</span> add this <span class="hljs-keyword">to</span> the server.js <span class="hljs-keyword">file</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">use</span> it...
+<pre><code><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
 
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-params">options</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">entry</span>: <span class="hljs-string">'./src/js/index.js'</span>,
+    <span class="hljs-attr">output</span>: {
+      <span class="hljs-attr">path</span>: path.join(__dirname, <span class="hljs-string">'../'</span>, <span class="hljs-string">'/dist'</span>),
+      <span class="hljs-attr">filename</span>: <span class="hljs-string">'bundle.js'</span>,
+    }
+  }
+} 
 </code></pre>
-<p>➜  how-to-js-router git:(kstephen) ✗ cat server.js</p>
-<pre><code></code></pre>
-<p>const express = require(‘express’);
-const history = require(‘connect-history-api-fallback’)
-const server = express();
-const staticFileMiddleware = express.static(‘dist’);
-server.use(staticFileMiddleware);
-server.use(history({
-disableDotRule: true,
-verbose: true
+<p>We’ll also need to temporaily copy our index.html file into dist, as thats what express is going to serve We need to use path to get an absolute location for the production bundle (in this case, our current directory, then one level up, then dist)</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(eleven-express) ✗ <span class="hljs-keyword">cat</span> server.js
+</code></pre>
+<pre><code><span class="hljs-keyword">const</span> express = require(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> server = express();
+
+server.use(express.<span class="hljs-keyword">static</span>(<span class="hljs-string">'dist'</span>));
+server.<span class="hljs-built_in">listen</span>(<span class="hljs-built_in">process</span>.env.PORT || <span class="hljs-number">5000</span>);
+</code></pre>
+<p>This serves our production bundle on port 5000 - all good, except it doesn’t handle refresh or direct linking. If we remember back to the dev webpack, we had a historyApiFallback rewrite function, sending all requests initiall to index.html, now we need to do something similar here as well. A package we can use for this is connect-history-api-fallback.</p>
+<pre><code>how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(dev) ✗ npm install connect-<span class="hljs-keyword">history</span>-api-fallback
+</code></pre>
+<p>We’ll add this to the server.js file and use it…</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(kstephen) ✗ <span class="hljs-keyword">cat</span> server.js
+</code></pre>
+<pre><code><span class="hljs-keyword">const</span> express = <span class="hljs-keyword">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> history = <span class="hljs-keyword">require</span>(<span class="hljs-string">'connect-history-api-fallback'</span>)
+<span class="hljs-keyword">const</span> server = express();
+<span class="hljs-keyword">const</span> staticFileMiddleware = express.<span class="hljs-keyword">static</span>(<span class="hljs-string">'dist'</span>);
+server.<span class="hljs-keyword">use</span>(staticFileMiddleware);
+server.<span class="hljs-keyword">use</span>(history({
+  disableDotRule: <span class="hljs-keyword">true</span>,
+  verbose: <span class="hljs-keyword">true</span>
 }));
-server.use(staticFileMiddleware);
-server.listen(process.env.PORT || 5000);</p>
-<pre><code>
-___
-
-<span class="hljs-comment">### Handling static assets</span>
-
-Our HTML <span class="hljs-built_in">files</span> aren<span class="hljs-string">'t being bundled, so we'</span>ll need <span class="hljs-built_in">to</span> make sure they are accessible <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> production build. So we can <span class="hljs-built_in">add</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">new</span> npm script <span class="hljs-string">'copy-files'</span>, which can run every <span class="hljs-built_in">time</span> <span class="hljs-keyword">a</span> build finishes.
-
+server.<span class="hljs-keyword">use</span>(staticFileMiddleware);
+server.listen(process.env.PORT || <span class="hljs-number">5000</span>);
 </code></pre>
-<p>➜  how-to-js-router git:(kstephen) ✗ cat -n package.json</p>
-<pre><code></code></pre>
-<p>…
-6	  “scripts”: {
-7	    “dev”: “webpack-dev-server --config webpack/webpack.config.js --open”,
-8	    “build”: “webpack --config webpack/webpack.prod.config.js &amp;&amp; npm run copy-files”,
-9	    “copy-files”: “cp src/index.html dist &amp;&amp; cp -r views dist”,
-10	    “prod”: &quot;node server.js&quot;
-11	  }
-…</p>
-<pre><code>
-This will give us <span class="hljs-keyword">the</span> following structure <span class="hljs-keyword">for</span> <span class="hljs-keyword">the</span> production build, <span class="hljs-keyword">and</span> copying these <span class="hljs-built_in">files</span> <span class="hljs-keyword">as</span> part <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> build <span class="hljs-built_in">process</span> means we only need <span class="hljs-built_in">to</span> worry about maintaining <span class="hljs-literal">one</span> <span class="hljs-built_in">set</span>.
-
+<hr>
+<h3>Handling static assets</h3>
+<p>Our HTML files aren’t being bundled, so we’ll need to make sure they are accessible to the production build. So we can add a new npm script ‘copy-files’, which can run every time a build finishes.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(kstephen) ✗ <span class="hljs-keyword">cat</span> -n package.json
 </code></pre>
-<p>➜  how-to-js-router git:(kstephen) ✗ tree dist
+<pre><code>...
+     <span class="hljs-number">6</span>	  <span class="hljs-string">"scripts"</span>: {
+     <span class="hljs-number">7</span>	    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"webpack-dev-server --config webpack/webpack.config.js --open"</span>,
+     <span class="hljs-number">8</span>	    <span class="hljs-string">"build"</span>: <span class="hljs-string">"webpack --config webpack/webpack.prod.config.js &amp;&amp; npm run copy-files"</span>,
+     <span class="hljs-number">9</span>	    <span class="hljs-string">"copy-files"</span>: <span class="hljs-string">"cp src/index.html dist &amp;&amp; cp -r views dist"</span>,
+    <span class="hljs-number">10</span>	    <span class="hljs-string">"prod"</span>: <span class="hljs-string">"node server.js"</span>
+    <span class="hljs-number">11</span>	  }
+    ...
+</code></pre>
+<p>This will give us the following structure for the production build, and copying these files as part of the build process means we only need to worry about maintaining one set.</p>
+<pre><code>➜  how-to-js-router git:(kstephen) ✗ tree dist
 dist
-├── bundle.js
-├── index.html
+├── bundle<span class="hljs-selector-class">.js</span>
+├── index<span class="hljs-selector-class">.html</span>
 └── views
-├── default.html
-├── glossop.html
-├── hereford.html
-├── kendal.html
-└── malton.html</p>
-<p>1 directory, 7 files</p>
-<pre><code>
-___
+    ├── default<span class="hljs-selector-class">.html</span>
+    ├── glossop<span class="hljs-selector-class">.html</span>
+    ├── hereford<span class="hljs-selector-class">.html</span>
+    ├── kendal<span class="hljs-selector-class">.html</span>
+    └── malton<span class="hljs-selector-class">.html</span>
 
-<span class="hljs-comment">### Gotchas - File Locations</span>
-
-Caveat, <span class="hljs-keyword">as</span> we're only maintaining one <span class="hljs-keyword">set</span> <span class="hljs-keyword">of</span> html files, <span class="hljs-keyword">and</span> copying them <span class="hljs-keyword">from</span> <span class="hljs-keyword">to</span> dist <span class="hljs-keyword">as</span> part <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> build process, we have <span class="hljs-keyword">to</span> make sure we remove any <span class="hljs-keyword">reference</span> <span class="hljs-keyword">to</span> 'src' <span class="hljs-keyword">in</span> our js files. The views will be <span class="hljs-keyword">at</span> <span class="hljs-keyword">the</span> top level, which <span class="hljs-keyword">in</span> dev <span class="hljs-keyword">with</span> webpack will be <span class="hljs-keyword">the</span> top level <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> repo, <span class="hljs-keyword">but</span> <span class="hljs-keyword">in</span> production, 'dist' will be <span class="hljs-keyword">the</span> top level, <span class="hljs-keyword">as</span> thats <span class="hljs-keyword">where</span> we are telling node <span class="hljs-keyword">to</span> serve static assets <span class="hljs-keyword">from</span>. This <span class="hljs-keyword">is</span> best illustrated <span class="hljs-keyword">by</span> tree.
-
+<span class="hljs-number">1</span> directory, <span class="hljs-number">7</span> files
 </code></pre>
-<p>➜  how-to-js-router git:(kstephen) ✗ tree | more
+<hr>
+<h3>Gotchas - File Locations</h3>
+<p>Caveat, as we’re only maintaining one set of html files, and copying them from to dist as part of the build process, we have to make sure we remove any reference to ‘src’ in our js files. The views will be at the top level, which in dev with webpack will be the top level of the repo, but in production, ‘dist’ will be the top level, as thats where we are telling node to serve static assets from. This is best illustrated by tree.</p>
+<pre><code>➜  how-to-js-router git:(kstephen) ✗ tree | more
 .
-├── <a href="http://README.md">README.md</a>
+├── README.md
 ├── dist
 │   ├── bundle.js
-│   ├── index.html
+│   ├── <span class="hljs-keyword">index</span>.html
 │   └── views
-│       ├── default.html
+│       ├── <span class="hljs-keyword">default</span>.html
 │       ├── glossop.html
 │       ├── hereford.html
 │       ├── kendal.html
 │       └── malton.html
-…
-├── server.js
+...
+├── <span class="hljs-keyword">server</span>.js
 ├── src
-│   ├── index.html
+│   ├── <span class="hljs-keyword">index</span>.html
 │   └── js
 │       ├── delph.js
-│       ├── index.js
+│       ├── <span class="hljs-keyword">index</span>.js
 │       ├── page.js
 │       └── routes.js
 ├── views
-│   ├── default.html
+│   ├── <span class="hljs-keyword">default</span>.html
 │   ├── glossop.html
 │   ├── hereford.html
 │   ├── kendal.html
 │   └── malton.html
 └── webpack
-├── webpack.config.js
-└── webpack.prod.config.js</p>
-<pre><code></code></pre>
+    ├── webpack.config.js
+    └── webpack.prod.config.js
+</code></pre>
 <p>In both dev and prod, we want to make sure fetch is retrieving from the top level, so here’s where we want to make sure there are no references to ‘src’.</p>
 <pre><code>➜  how-to-js-router git:(kstephen) ✗ cat -n src/js/page.js
      1	<span class="hljs-builtin-name">export</span> class<span class="hljs-built_in"> Page </span>{
@@ -336,4 +315,4 @@ Caveat, <span class="hljs-keyword">as</span> we're only maintaining one <span cl
 <hr>
 <h3>Next</h3>
 <p>In part 3 we’ll include our static html in the compiled bundle, along with some images and css, and tidy things up.</p>
-</div><div data-reactid="34"><span style="display:inline;" data-reactid="35"><span style="margin-right:8px;line-height:1.5;" data-reactid="36"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="37">Javascript</a><span data-reactid="38">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="39"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="40">ES6</a><span data-reactid="41"></span></span></span><hr style="margin-top:1.07rem;" data-reactid="42"/><p style="margin-bottom:0.33rem;" data-reactid="43"><a href="/about/" data-reactid="44"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="45"/></a><span data-reactid="46"><!-- react-text: 47 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="48"></a></span></p><div data-reactid="49"><div data-reactid="50"><span data-reactid="51"><a href="/" data-reactid="52">Posts | </a><a href="/about/" data-reactid="53">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="54">Contact</a></div></div></div></div></div></div><script src="/bundle.js?t=1504531353694"></script></body></html>
+</div><div data-reactid="34"><span style="display:inline;" data-reactid="35"><span style="margin-right:8px;line-height:1.5;" data-reactid="36"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="37">Javascript</a><span data-reactid="38">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="39"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="40">ES6</a><span data-reactid="41"></span></span></span><hr style="margin-top:1.07rem;" data-reactid="42"/><p style="margin-bottom:0.33rem;" data-reactid="43"><a href="/about/" data-reactid="44"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="45"/></a><span data-reactid="46"><!-- react-text: 47 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="48"></a></span></p><div data-reactid="49"><div data-reactid="50"><span data-reactid="51"><a href="/" data-reactid="52">Posts | </a><a href="/about/" data-reactid="53">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="54">Contact</a></div></div></div></div></div></div><script src="/bundle.js?t=1504801558843"></script></body></html>
