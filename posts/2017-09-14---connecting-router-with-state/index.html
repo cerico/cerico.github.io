@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+ <html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title data-react-helmet="true">cerico | Connecting Router With Store</title><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font-size:112.5%;line-height:1.65em;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:normal;word-wrap:break-word;}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.25rem;line-height:2.475rem;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.62671rem;line-height:2.475rem;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.38316rem;line-height:1.65rem;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.65rem;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.85028rem;line-height:1.65rem;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;color:hsla(0,0%,0%,0.8);font-family:Roboto,sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.78405rem;line-height:1.65rem;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}ul{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.65rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;padding:1.65rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;font-size:1rem;line-height:1.65rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}blockquote{margin-left:1.65rem;margin-right:1.65rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.65rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.65rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.65rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}li > ul{margin-left:1.65rem;margin-bottom:calc(1.65rem / 2);margin-top:calc(1.65rem / 2);}code{font-size:0.85rem;line-height:1.65rem;}kbd{font-size:0.85rem;line-height:1.65rem;}samp{font-size:0.85rem;line-height:1.65rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:tnum;padding-left:1.1rem;padding-right:1.1rem;padding-top:0.825rem;padding-bottom:calc(0.825rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:Consolas,"Roboto Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:"";}</style><link href="//fonts.googleapis.com/css?family=Roboto:400,400i,700" rel="stylesheet" type="text/css"/><style>@import url(https://fonts.googleapis.com/css?family=Raleway);.hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}.hljs-comment,.hljs-quote{color:#aeaeae;font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#e28964}.hljs-string{color:#65b042}.hljs-subst{color:#daefa3}.hljs-link,.hljs-regexp{color:#e9c062}.hljs-name,.hljs-section,.hljs-tag,.hljs-title{color:#89bdff}.hljs-class .hljs-title,.hljs-doctag{text-decoration:underline}.hljs-bullet,.hljs-number,.hljs-symbol{color:#3387cc}.hljs-params,.hljs-template-variable,.hljs-variable{color:#3e87e3}.hljs-attribute{color:#cda869}.hljs-meta{color:#8996a8}.hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}.hljs-addition{background-color:#253b22;color:#f8f8f8}.hljs-deletion{background-color:#420e09;color:#f8f8f8}.hljs-selector-class{color:#9b703f}.hljs-selector-id{color:#8b98ab}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}*{font-family:Fira Sans,sans-serif}body{color:#5f5c5c;font-family:PT Serif,serif;line-height:1.2em;margin:1em auto 4em;padding:0 18px;position:relative}pre{background:#000;color:#f8f8f8}pre *{font-family:Consolas,Roboto Mono,Liberation Mono,Menlo,Courier,monospace}h1,h2{text-rendering:optimizeLegibility}.inverse-topper,.topper{font-family:PT Sans,sans-serif;font-size:64px;font-weight:300;letter-spacing:-2px;line-height:1em;margin:.5em 0}.inverse-topper{color:#fff}.markdown{margin-top:23.8px;margin-top:1.7rem}body{font-family:Fira Sans,sans-serif;font-weight:300;margin:0;background:#fff;color:#3a3a3a;margin-bottom:126px;margin-bottom:9rem}header[role=banner]{background:#6495ed;padding:22px 0 0;margin-top:12px;height:112px;height:8rem;text-align:center;color:#fff}header[role=banner] h1{margin:0}header[role=banner] h3{font-size:37.8px;font-size:2.7rem}header{font-family:Raleway,sans-serif;font-weight:100;text-rendering:optimizeLegibility;line-height:1;margin-top:0}a,header{color:#6495ed}a{outline:none;transition:color .3s ease;text-decoration:none}h1{font-weight:300;font-size:70px;font-size:5rem;margin:0;font-family:Raleway,sans-serif;font-weight:100;color:#6495ed;text-rendering:optimizeLegibility}h1,h3{line-height:1}h3{font-size:37.8px;font-size:2.7rem;color:#5f5c5c;font-weight:"Fira Sans",sans-serif;font-weight:300}html{font-size:14px}article,main{display:block}.content{max-width:900px}.content,.page-content{margin:14px auto;margin:1rem auto}.page-content{max-width:720px}.post{position:relative;width:80%;margin:42px auto;margin:3rem auto;padding-bottom:42px;padding-bottom:3rem;border-bottom:1px solid #ccc;word-break:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}.post-meta{display:inline-block;margin:0 0 5px;font-size:28px;font-size:2rem;color:#9eabb3}.post-meta a{color:#9eabb3;text-decoration:none}.post-title{margin:0;color:#6495ed}h2{font-size:56px;font-size:4rem}section{max-width:960px;margin:auto}.post-excerpt p{margin:22.4px 0 0;margin:1.6rem 0 0;line-height:22.4px;line-height:1.6rem}dl,ol,p,ul{margin:22.4px 0;margin:1.6rem 0;font-size:17.92px;font-size:1.28rem;line-height:1.6}ol,ul{margin-left:22.4px!important;margin-left:1.6rem!important}header h1,header h3{color:#fff}</style></head><body><div id="react-mount"><div data-reactroot="" data-reactid="1" data-react-checksum="-343231421"><div class="headroom-wrapper" data-reactid="2"><div style="position:relative;top:0;left:0;right:0;z-index:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);" class="headroom headroom--unfixed" data-reactid="3"><header role="banner" data-reactid="4"><a class="inverse-topper" href="/" data-reactid="5">cerico</a></header></div></div><div style="margin-left:2%;" data-reactid="6"><p style="margin-bottom:0.33rem;" data-reactid="7"><a href="/about/" data-reactid="8"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="9"/></a><span data-reactid="10"><!-- react-text: 11 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="12"></a></span></p><div data-reactid="13"><div data-reactid="14"><span data-reactid="15"><a href="/" data-reactid="16">Posts | </a><a href="/about/" data-reactid="17">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="18">Contact</a></div></div></div><div class="markdown page-content" data-reactid="19"><!-- react-empty: 20 --><div data-reactid="21"><div style="font-size:2rem;color:#9EABB3;margin-bottom:1px;text-align:center;" data-reactid="22"><!-- react-text: 23 -->14 Sep 2017<!-- /react-text --><!-- react-text: 24 --> in <!-- /react-text --><span style="display:inline;" data-reactid="25"><span style="margin-right:8px;line-height:1.5;" data-reactid="26"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="27">ES6</a><span data-reactid="28">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="29"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="30">Javascript</a><span data-reactid="31"></span></span></span></div></div><h1 style="font-size:4rem;margin-bottom:1rem;margin-top:2rem;" data-reactid="32">Connecting Router With Store</h1><div data-reactid="33"><p>In the last post we moved local state to a store object, and were able to move from page to page without losing our pages state (a simple counter). But this gives us other things to think about. Perhaps we’d like to show which link is active, or do other things based on which view we’re on. Our router and our store are independent of each other, so now we’ll look at how to link them.</p>
+<p>We can pick the repo up at stage 20: <a href="https://github.com/cerico/how-to-js-router/tree/0.20.0">https://github.com/cerico/how-to-js-router/tree/0.20.0</a></p>
+<h3>Previously in ‘How To JS Router’</h3>
+<p><a href="../2017-08-26---javascript-router/">Part One</a></p>
+<p><a href="../2017-09-02---js-router-part-two-refresh/">Part Two</a></p>
+<p><a href="../2017-09-11---introducing-web-components/">Part Three</a></p>
+<p><a href="../2017-09-12---javascript-router-with-state/">Part Four</a></p>
+<h3>Spoilers</h3>
+<ol>
+<li>Refactoring Index and Header Page</li>
+<li>Connect Router to Store Dispatch</li>
+<li>Dispatch Action (store)</li>
+<li>Subscribe Router to Store</li>
+<li>Multiple Subscribers</li>
+<li>Showing the active link</li>
+<li>Expanding Store</li>
+<li>Issues</li>
+<li>Comparing state with previousState</li>
+<li>Should Update?</li>
+<li>Unsubscribing</li>
+<li>Return of pushState and backbutton</li>
+<li>Next steps</li>
+</ol>
+<h3>1. Refactored Index and Header Page</h3>
+<p>First lets tidy up the index page</p>
+<pre><code><span class="hljs-keyword">import</span> {store} <span class="hljs-keyword">from</span> <span class="hljs-string">'./store'</span>;
+<span class="hljs-keyword">import</span> { Delph } <span class="hljs-keyword">from</span> <span class="hljs-string">'./Delph'</span>;
+<span class="hljs-keyword">import</span> { Header } <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/header'</span>
+<span class="hljs-keyword">import</span> { Footer } <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/footer'</span>
+<span class="hljs-keyword">import</span> { routes } <span class="hljs-keyword">from</span> <span class="hljs-string">'./routes'</span>
+
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Index {
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){
+      <span class="hljs-keyword">let</span> path = <span class="hljs-built_in">window</span>.location.pathname.substr(<span class="hljs-number">1</span>)
+      <span class="hljs-keyword">let</span> config = {
+          routes:routes,
+          store:store,
+          path: path
+        }
+      <span class="hljs-keyword">new</span> Header(config)
+      <span class="hljs-keyword">new</span> Delph(config)
+    }
+  };
+  <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">new</span> Index()
+  })
+</code></pre>
+<p>More or less the same, but we pass the Delph router a config object, comprising of the routes, state and current page. The header page is initiated at the same time and passed the same config object.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">21</span>-refactoring-index) cat src/js/components/header.js
+<span class="hljs-keyword">import</span> { ListItem } <span class="hljs-keyword">from</span> <span class="hljs-string">'./list-item'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Header</span>  </span>{
+
+  <span class="hljs-keyword">constructor</span>(config){
+    <span class="hljs-keyword">this</span>.routes = config.routes
+    <span class="hljs-keyword">this</span>.store = config.store
+    <span class="hljs-keyword">let</span> header = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'ul'</span>)
+    <span class="hljs-built_in">document</span>.body.appendChild(header)
+    <span class="hljs-keyword">this</span>.render()
+  }
+
+  render(){
+    <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.routes).map(<span class="hljs-function"><span class="hljs-params">route</span> =&gt;</span> {
+      <span class="hljs-keyword">let</span> link = <span class="hljs-keyword">new</span> ListItem(route,<span class="hljs-keyword">this</span>.store)
+      header.appendChild(link);
+    })
+  }
+}
+</code></pre>
+<p>As we have multiple link items, we’ll make each its own webcomponent</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">21</span>-refactoring-index) cat src/js/components/list-item.js
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListItem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+
+    constructor(route,store){
+        <span class="hljs-keyword">super</span>()
+        <span class="hljs-keyword">this</span>.route = {
+            text: route || <span class="hljs-symbol">'inde</span>x',
+            path: route
+        }
+        <span class="hljs-keyword">this</span>.store = store
+    }
+
+    handleClick(){
+
+    }
+
+    connectedCallback() {
+        <span class="hljs-keyword">this</span>.addEventListener(<span class="hljs-symbol">'clic</span>k',<span class="hljs-keyword">this</span>.handleClick)
+        <span class="hljs-keyword">this</span>.render()
+    }
+
+    render(previousState,state) {
+          <span class="hljs-keyword">this</span>.innerHTML = (`&lt;li&gt;${<span class="hljs-keyword">this</span>.route.text}&lt;/liv&gt;`)
+    }
+}
+
+customElements.define(<span class="hljs-symbol">'list</span>-item', <span class="hljs-type">ListItem</span>)
+</code></pre>
+<p>Repo at stage 21: <a href="https://github.com/cerico/how-to-js-router/tree/0.21.0">https://github.com/cerico/how-to-js-router/tree/0.21.0</a></p>
+<h3>2. Dispatching a route change</h3>
+<p>Instead of loading a route directly, we’ll move the loadRoute function out to an actions file - and then we’ll have the store run that action. As we’ll see this means different parts of the app can be notified on route change and run whichever functions they need to at that point.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">21.7</span>) ✗ cat src/js/delph.js
+<span class="hljs-keyword">import</span> { loadRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">'./actions'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Delph</span> </span>{
+
+  <span class="hljs-keyword">constructor</span>(config){
+    <span class="hljs-keyword">this</span>.routes = config.routes;
+    <span class="hljs-keyword">this</span>.routerOutlet = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>)
+    <span class="hljs-built_in">document</span>.body.appendChild(<span class="hljs-keyword">this</span>.routerOutlet)
+    config.store.dispatch(loadRoute({<span class="hljs-attr">path</span>:config.path}))
+  }
+
+  render(){
+
+  }
+}
+</code></pre>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(<span class="hljs-number">21.7</span>) ✗ <span class="hljs-keyword">cat</span> src/js/actions.js
+export <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadRoute</span> <span class="hljs-params">(route)</span>{</span>
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-built_in">type</span>: <span class="hljs-string">'CHANGE_ROUTE'</span>,
+        route
+    }
+}
+</code></pre>
+<p>The route object here will be {path:config.path}). But its the store’s dispatch action which runs this, so lets take a look there. To start off, we’ll configure our store as if it is only ever going to run this one function.</p>
+<h3>3 Dispatch Action (store)</h3>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">21.7</span>) ✗ cat src/js/store.js
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Store</span> (<span class="hljs-params"></span>)  </span>{
+  <span class="hljs-keyword">this</span>.state = {<span class="hljs-attr">route</span>: <span class="hljs-literal">null</span>}
+};
+
+<span class="hljs-keyword">let</span> routeChanger
+
+Store.prototype.dispatch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">action</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(action)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.state)
+  <span class="hljs-keyword">this</span>.state.route = changeRoute(<span class="hljs-keyword">this</span>.state.route,action)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.state)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeRoute</span>(<span class="hljs-params">route,action</span>)</span>{
+  <span class="hljs-keyword">switch</span> (action.type){
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'CHANGE_ROUTE'</span>:
+          <span class="hljs-keyword">let</span> newRoute = action.route
+          <span class="hljs-keyword">return</span> newRoute
+      <span class="hljs-keyword">default</span>:
+          <span class="hljs-keyword">return</span> route || <span class="hljs-string">''</span>
+
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Store()
+</code></pre>
+<p>We initiate the store with an empty state. When the dispatch function runs, it runs any functions that need to update the state, of which we only have one right now ‘changeRoute’. We run this with the current state and the action function referenced from our router, which should return {path:config.path}). Because the action types (‘CHANGE_ROUTE’) match, it will create a new route object and return that. And if we look in the logs we can see we have a new route as part of our state.</p>
+<p>But now what, the store is updated but nothing has happened, how do we let our router or any other part of the app know that something has changed and it should do something?</p>
+<h3>4. Subscribe Router to Store</h3>
+<p>Firstly, we need to have our router subscribe to the store, so that it can be notified when a change has happened</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">22</span>-dispatch-route) ✗ cat src/js/delph.js
+<span class="hljs-keyword">import</span> { loadRoute } from <span class="hljs-string">'./actions'</span>
+
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Delph</span> </span>{
+
+  <span class="hljs-keyword">constructor</span>(config){
+    <span class="hljs-keyword">this</span>.routes = config.routes;
+    <span class="hljs-keyword">this</span>.routerOutlet = document.createElement(<span class="hljs-string">'div'</span>)
+    document.body.appendChild(<span class="hljs-keyword">this</span>.routerOutlet)
+    config.store.subscribe(<span class="hljs-keyword">this</span>.render.bind(<span class="hljs-keyword">this</span>));
+    config.store.dispatch(loadRoute({path:config.path}))
+  }
+
+  render(page){
+    <span class="hljs-keyword">while</span> (<span class="hljs-keyword">this</span>.routerOutlet.firstChild) {
+      <span class="hljs-keyword">this</span>.routerOutlet.removeChild(<span class="hljs-keyword">this</span>.routerOutlet.firstChild);
+    }
+    <span class="hljs-keyword">this</span>.routerOutlet.appendChild(new <span class="hljs-keyword">this</span>.routes[page.path])
+  }
+}
+</code></pre>
+<p>Just as we sent the store’s dispatch a function, we can do the same to the store’s subscribe function. We’ll send it the router’s render function, so this will run whenever the store notifies its subscribers (us!) that they need to run.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">21.81</span>) ✗ cat -n src/js/store.js
+   ...
+     <span class="hljs-number">5</span>	let routeChanger
+     <span class="hljs-number">6</span>
+     <span class="hljs-number">7</span>	Store.prototype.subscribe = function(fn){
+     <span class="hljs-number">8</span>	  console.<span class="hljs-keyword">log</span>(fn)
+     <span class="hljs-number">9</span>	  routeChanger = fn
+    <span class="hljs-number">10</span>	}
+    <span class="hljs-number">11</span>
+    <span class="hljs-number">12</span>	Store.prototype.dispatch = function(action){
+    <span class="hljs-number">13</span>	  this.<span class="hljs-keyword">state</span>.route = changeRoute(this.<span class="hljs-keyword">state</span>.route,action)
+    <span class="hljs-number">14</span>	  routeChanger(this.<span class="hljs-keyword">state</span>)
+    <span class="hljs-number">15</span>	}
+</code></pre>
+<p>We’ve made a function routeChanger when we instantiated the store, and when the router subscribes - and sends its render function, we make that become our routeChanger function. Then we can run this as part of the dispatch function - which means the router will then run its render function, with the new state.</p>
+<p>Repo at stage 22: <a href="https://github.com/cerico/how-to-js-router/tree/0.22.0">https://github.com/cerico/how-to-js-router/tree/0.22.0</a></p>
+<h3>5. Multiple Subscribers</h3>
+<p>Lets return to the link items in the header.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">23</span>-header-subscriber) ✗ cat -n src/js/components/list-item.js
+     <span class="hljs-number">1</span>	<span class="hljs-keyword">import</span> { loadRoute } from <span class="hljs-string">'../actions'</span>
+   ...
+    <span class="hljs-number">14</span>	  handleClick(){
+    <span class="hljs-number">15</span>	    <span class="hljs-keyword">this</span>.store.dispatch(loadRoute({path:<span class="hljs-keyword">this</span>.route.path}))
+    <span class="hljs-number">16</span>	  }
+    <span class="hljs-number">17</span>
+    <span class="hljs-number">18</span>	  connectedCallback() {
+    <span class="hljs-number">19</span>	    <span class="hljs-keyword">this</span>.store.subscribe(<span class="hljs-keyword">this</span>.render.bind(<span class="hljs-keyword">this</span>));
+    <span class="hljs-number">20</span>	    <span class="hljs-keyword">this</span>.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-keyword">this</span>.handleClick)
+    <span class="hljs-number">21</span>	    <span class="hljs-keyword">this</span>.render()
+    <span class="hljs-number">22</span>	  }
+    <span class="hljs-number">23</span>
+    <span class="hljs-number">24</span>	  render() {
+    <span class="hljs-number">25</span>	    console.log(<span class="hljs-string">'am i rendering?'</span>)
+    <span class="hljs-number">26</span>	    <span class="hljs-keyword">this</span>.innerHTML = (`&lt;li&gt;${<span class="hljs-keyword">this</span>.route.text}&lt;/liv&gt;`)
+    <span class="hljs-number">27</span>	  }
+    <span class="hljs-number">28</span>	}
+    <span class="hljs-number">29</span>
+    <span class="hljs-number">30</span>	customElements.define(<span class="hljs-string">'list-item'</span>, ListItem)
+</code></pre>
+<p>Now we’ve added subscriber and dispatcher capability to the link items, but there is a problem!</p>
+<p>The router and the header both subscribe to the store with the functions they want run, one overwriting the other - as we only have one function set… Lets push our subscriber functions into an array, so we can run each of them instead of only one.</p>
+<pre><code>➜  how-to-js-router git:(dev) ✗ cat -n src/js/store.js
+   ...
+     <span class="hljs-number">5</span>	let subscribers = []
+     <span class="hljs-number">6</span>
+     <span class="hljs-number">7</span>	Store.prototype.subscribe = function(fn){
+     <span class="hljs-number">8</span>	  subscribers.push(fn)
+     <span class="hljs-number">9</span>	}
+    <span class="hljs-number">10</span>
+    <span class="hljs-number">11</span>	Store.prototype.dispatch = function(action){
+    <span class="hljs-number">12</span>	  this.<span class="hljs-keyword">state</span>.route = changeRoute(this.<span class="hljs-keyword">state</span>.route,action)
+    <span class="hljs-number">13</span>	  subscribers.<span class="hljs-keyword">for</span>Each(subscriber =&gt; subscriber(this.<span class="hljs-keyword">state</span>))
+    <span class="hljs-number">14</span>	}
+</code></pre>
+<p>Now both the render function of the router and the render function of each link item will run whenever the store is updated. Note that we’re now passing each subscriber function the whole state - as now there will be more than one, they may require access to different parts of the state.</p>
+<p>We’ll also need to reflect that change in the router</p>
+<pre><code>➜  how-to-js-router git:(dev) ✗ cat -n src/js/delph<span class="hljs-selector-class">.js</span>
+   ...
+    <span class="hljs-number">17</span>	    this<span class="hljs-selector-class">.routerOutlet</span><span class="hljs-selector-class">.appendChild</span>(new this<span class="hljs-selector-class">.routes</span>[page<span class="hljs-selector-class">.route</span><span class="hljs-selector-class">.path</span>])
+   ...
+</code></pre>
+<p>Repo at stage 23: <a href="https://github.com/cerico/how-to-js-router/tree/0.23.0">https://github.com/cerico/how-to-js-router/tree/0.23.0</a></p>
+<h3>6. Showing the active link</h3>
+<p>Ok, but so what? How is this helping? Well, now that both the router and the link items are subscribed to the store, both can be updated and we can not only show the correct page but also which link is the active link. Both render functions are run as they are both subscribed.</p>
+<pre><code>➜  <span class="hljs-string">how-to-</span><span class="hljs-string">js-router </span><span class="hljs-string">git:</span>(<span class="hljs-string">dev)</span> ✗ <span class="hljs-string">cat </span>-n <span class="hljs-string">src/</span><span class="hljs-string">js/</span><span class="hljs-string">components/</span><span class="hljs-built_in">list-item.js</span>
+   ...
+    <span class="hljs-string">25	</span>    <span class="hljs-string">render(</span><span class="hljs-string">store)</span> {
+    <span class="hljs-string">26	</span>        <span class="hljs-string">let </span><span class="hljs-string">linkColour
+</span>    <span class="hljs-string">27	</span>        <span class="hljs-string">this.</span><span class="hljs-string">route.</span><span class="hljs-string">path </span>=== <span class="hljs-string">this.</span><span class="hljs-string">store.</span><span class="hljs-string">state.</span><span class="hljs-string">route.</span><span class="hljs-string">path </span>?
+    <span class="hljs-string">28	</span>          <span class="hljs-string">linkColour </span>= <span class="hljs-string">"color:red"</span> :
+    <span class="hljs-string">29	</span>          <span class="hljs-string">linkColour </span>= <span class="hljs-string">"color:blue"</span>
+    <span class="hljs-string">30	</span>        <span class="hljs-string">this.</span><span class="hljs-string">innerHTML </span>= (`&lt;<span class="hljs-string">li </span><span class="hljs-string">style=</span>${<span class="hljs-string">linkColour}</span>&gt;${<span class="hljs-string">this.</span><span class="hljs-string">route.</span><span class="hljs-string">text}</span>&lt;/<span class="hljs-string">liv&gt;</span>`)
+    <span class="hljs-string">31	</span>    }
+   ...
+</code></pre>
+<p>Repo at stage 24: <a href="https://github.com/cerico/how-to-js-router/tree/0.24.0">https://github.com/cerico/how-to-js-router/tree/0.24.0</a></p>
+<h3>7. Expanding the store</h3>
+<p>Lets add our counter back in to the Kendal page, and put a timeout on the page’s render function, so we can see more clearly whats happening.</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(timeout) ✗ <span class="hljs-keyword">cat</span> -n src/js/actions.js
+   ...
+     <span class="hljs-number">9</span>	export <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increaseKendal</span> <span class="hljs-params">(count)</span>{</span>
+    <span class="hljs-number">10</span>	    <span class="hljs-keyword">return</span> {
+    <span class="hljs-number">11</span>	        <span class="hljs-built_in">type</span>: <span class="hljs-string">'INCREASE_KENDAL'</span>,
+    <span class="hljs-number">12</span>	        <span class="hljs-built_in">count</span>
+    <span class="hljs-number">13</span>	    }
+    <span class="hljs-number">14</span>	}
+</code></pre>
+<pre><code>➜  how-to-js-router git:<span class="hljs-type"></span>(timeout) ✗ cat -n src/js/store.js
+   ...
+    <span class="hljs-number">15</span>	Store.prototype.dispatch = <span class="hljs-function"><span class="hljs-keyword">function</span></span>(action){
+    <span class="hljs-number">16</span>	  <span class="hljs-built_in">this</span>.state = {
+    <span class="hljs-number">17</span>	    route: <span class="hljs-type">changeRoute</span>(<span class="hljs-built_in">this</span>.state.route,action),
+    <span class="hljs-number">18</span>	    kendal: <span class="hljs-type">kendalCount</span>(<span class="hljs-built_in">this</span>.state.kendal,action)
+    <span class="hljs-number">19</span>	  }
+   ...
+    <span class="hljs-number">35</span>	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">kendalCount</span></span>(kendal,action){
+    <span class="hljs-number">36</span>	  <span class="hljs-keyword">switch</span> (action.type){
+    <span class="hljs-number">37</span>	      <span class="hljs-keyword">case</span> <span class="hljs-string">'INCREASE_KENDAL'</span>:<span class="hljs-type"></span>
+    <span class="hljs-number">38</span>	          let <span class="hljs-keyword">new</span><span class="hljs-type">State</span> = {counter: <span class="hljs-type">kendal</span>.counter + <span class="hljs-number">1</span>}
+    <span class="hljs-number">39</span>	          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">State</span>
+    <span class="hljs-number">40</span>	      <span class="hljs-keyword">default</span>:<span class="hljs-type"></span>
+    <span class="hljs-number">41</span>	          <span class="hljs-keyword">return</span> kendal || {counter: <span class="hljs-type">0</span>}
+    <span class="hljs-number">42</span>	  }
+    <span class="hljs-number">43</span>	}
+    <span class="hljs-number">44</span>
+    <span class="hljs-number">45</span>	export const store = <span class="hljs-keyword">new</span> <span class="hljs-type">Store</span>()
+</code></pre>
+<pre><code>how-to-js-router git:(timeout) ✗ cat src/js/components/kendal.js
+<span class="hljs-keyword">import</span> { store  } from <span class="hljs-string">"../store"</span>;
+<span class="hljs-keyword">import</span> { increaseKendal } from '../actions'
+
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KendalComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
+
+  constructor(){
+    <span class="hljs-keyword">super</span>()
+    <span class="hljs-keyword">this</span>.store = store       
+  }
+    
+  handleClick(){
+    <span class="hljs-keyword">this</span>.store.dispatch(increaseKendal(<span class="hljs-number">1</span>))
+  }
+
+  connectedCallback() {
+    <span class="hljs-keyword">this</span>.render();
+    <span class="hljs-keyword">this</span>.addEventListener(<span class="hljs-symbol">'clic</span>k',<span class="hljs-keyword">this</span>.handleClick);        
+  }
+
+  render() {
+    <span class="hljs-keyword">this</span>.innerHTML = (
+      `&lt;div style=<span class="hljs-string">"height:100px;background:orange"</span>&gt;
+        &lt;div&gt;<span class="hljs-type">Page</span> <span class="hljs-type">Counter</span> = ${<span class="hljs-keyword">this</span>.store.state.kendal.counter}&lt;/div&gt;
+      &lt;/div&gt;`
+    )
+  }
+}
+
+customElements.define(<span class="hljs-symbol">'kendal</span>-component', <span class="hljs-type">KendalComponent</span>);
+</code></pre>
+<p>Now the store has two responsibilities, handling the router and now also the counter for the kendal page. We have a dispatch action (increaseKendal) to increase the counter. Lets put a timeout on our router so we can see more clearly what happens.</p>
+<pre><code>➜  how-to-js-router git:(timeout) ✗ cat -n src/js/delph<span class="hljs-selector-class">.js</span>
+   ...
+    <span class="hljs-number">17</span>	    setTimeout (() =&gt; {
+    <span class="hljs-number">18</span>	      this<span class="hljs-selector-class">.routerOutlet</span><span class="hljs-selector-class">.appendChild</span>(new this<span class="hljs-selector-class">.routes</span>[page<span class="hljs-selector-class">.route</span><span class="hljs-selector-class">.path</span>])
+    <span class="hljs-number">19</span>	    },<span class="hljs-number">500</span>)
+   ...
+</code></pre>
+<p>Repo at stage 25: <a href="https://github.com/cerico/how-to-js-router/tree/0.25.0">https://github.com/cerico/how-to-js-router/tree/0.25.0</a></p>
+<h3>8. issues</h3>
+<p><img src="https://s3.amazonaws.com/how-to-js-router/Screen+Capture+on+2017-10-01+at+14-32-43.gif" alt="with timeout" title="with timeout"></p>
+<p>Looks ok at first glance, but theres a big issue here. When we click the page to increase the counter, the router is re-rendering the entire kendal element. This also means the counter is incrementing, even if we dont have the kendal componenets render method subscribed to the store, because its literally rerendering the whole element via the router.</p>
+<p>So whats happening? What we’re doing here is blindly rerendering everything, regardless of whether it needs to be rerendered. When we click on the counter to increment, we’d like the number to go up - but we don’t want to re-render the whole view. So we need to be more selective about what we’re going to re-render. To do this, instead of passing the store’s state everywhere, we’ll create a previousState object. Then we can pass both the state and the previousState to each subscriber function, and let them do a comparison and decide what to render.</p>
+<h3>9. Comparing state with previousState</h3>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">27</span>-previousState) ✗ cat -n src/js/store.js
+     <span class="hljs-number">1</span>	function Store ()  {
+     <span class="hljs-number">2</span>	  this.previousState = {}
+     <span class="hljs-number">3</span>	  this.<span class="hljs-keyword">state</span> = {}
+     <span class="hljs-number">4</span>	};
+   ...
+    <span class="hljs-number">16</span>	Store.prototype.dispatch = function(action){
+    <span class="hljs-number">17</span>	  this.previousState =  { ...this.<span class="hljs-keyword">state</span> }
+    <span class="hljs-number">18</span>	  this.<span class="hljs-keyword">state</span> = {
+    <span class="hljs-number">19</span>	    route: changeRoute(this.<span class="hljs-keyword">state</span>.route,action),
+    <span class="hljs-number">20</span>	    kendal: kendalCount(this.<span class="hljs-keyword">state</span>.kendal,action)
+    <span class="hljs-number">21</span>	  }
+    <span class="hljs-number">23</span>	  subscribers.<span class="hljs-keyword">for</span>Each(subscriber =&gt; subscriber(this.<span class="hljs-keyword">state</span>))
+    <span class="hljs-number">24</span>	}
+   ...
+</code></pre>
+<p>First we create a previousState object, and secondly everytime the store dispatches its action, we take a copy of the current state to compare against. For this we’re using an object spread, as we want a deep copy not just a pointer to the state.</p>
+<p>For this to work we currently need babel installed.</p>
+<pre><code>➜  how-to-<span class="hljs-keyword">js-router </span>git:(<span class="hljs-number">27</span>-previousState) ✗ npm <span class="hljs-keyword">install </span>--save-dev <span class="hljs-keyword">babel-preset-stage-2 </span><span class="hljs-keyword">babel-loader </span><span class="hljs-keyword">babel-core
+</span></code></pre>
+<p>and supplied to webpack.</p>
+<pre><code>➜  how-to-js-router <span class="hljs-string">git:</span>(<span class="hljs-number">27</span>-previousState) ✗ cat -n webpack/webpack.config.js
+     <span class="hljs-number">1</span>	module.exports = options =&gt; {
+     <span class="hljs-number">2</span>	  <span class="hljs-keyword">return</span> {
+   ...
+    <span class="hljs-number">18</span>	    <span class="hljs-string">module:</span> {
+    <span class="hljs-number">19</span>	      <span class="hljs-string">loaders:</span> [
+    <span class="hljs-number">20</span>	        {
+    <span class="hljs-number">21</span>	          <span class="hljs-string">test:</span> <span class="hljs-regexp">/\.jsx?$/</span>,
+    <span class="hljs-number">22</span>	          <span class="hljs-string">exclude:</span> <span class="hljs-regexp">/node_modules/</span>,
+    <span class="hljs-number">23</span>	          <span class="hljs-string">loader:</span> <span class="hljs-string">'babel-loader'</span>,
+    <span class="hljs-number">24</span>	          <span class="hljs-string">query:</span> {
+    <span class="hljs-number">25</span>	            <span class="hljs-string">presets:</span>[ <span class="hljs-string">'stage-2'</span> ]
+    <span class="hljs-number">26</span>	          }
+    <span class="hljs-number">27</span>	        }
+    <span class="hljs-number">28</span>	      ]
+    <span class="hljs-number">29</span>	    }
+    <span class="hljs-number">30</span>	  }
+    <span class="hljs-number">31</span>	}
+    <span class="hljs-number">32</span>
+</code></pre>
+<p>Repo at stage 26: <a href="https://github.com/cerico/how-to-js-router/tree/0.26.0">https://github.com/cerico/how-to-js-router/tree/0.26.0</a></p>
+<p>What this now means, is we can send each subscriber function both previous and current state</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">28</span>-comparingStates) cat -n src/js/store.js
+   ...
+    <span class="hljs-number">16</span>	Store.prototype.dispatch = function(action){
+    <span class="hljs-number">17</span>	  this.previousState =  { ...this.<span class="hljs-keyword">state</span> }
+    <span class="hljs-number">18</span>	  this.<span class="hljs-keyword">state</span> = {
+    <span class="hljs-number">19</span>	    route: changeRoute(this.<span class="hljs-keyword">state</span>.route,action),
+    <span class="hljs-number">20</span>	    kendal: kendalCount(this.<span class="hljs-keyword">state</span>.kendal,action)
+    <span class="hljs-number">21</span>	  }
+    <span class="hljs-number">22</span>	  subscribers.<span class="hljs-keyword">for</span>Each(subscriber =&gt; subscriber(this.previousState,this.<span class="hljs-keyword">state</span>))
+    <span class="hljs-number">23</span>	}
+</code></pre>
+<p>So everywhere now, each subscribers render function can assess whether it needs to update</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">28</span>-comparingStates) cat -n src/js/delph.js
+   ...
+    <span class="hljs-number">13</span>	  render(previousState,<span class="hljs-keyword">state</span>){
+    <span class="hljs-number">14</span>	    if (previousState.route.path != <span class="hljs-keyword">state</span>.route.path ){
+   ... 
+</code></pre>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">28</span>-comparingStates) cat -n src/js/components/kendal.js
+   ...
+    <span class="hljs-number">21</span>	  render(previousState,<span class="hljs-keyword">state</span>) {
+    <span class="hljs-number">22</span>	    if (previousState.kendal.counter != <span class="hljs-keyword">state</span>.kendal.counter){
+   ...
+</code></pre>
+<p>Repo at stage 27: <a href="https://github.com/cerico/how-to-js-router/tree/0.27.0">https://github.com/cerico/how-to-js-router/tree/0.27.0</a></p>
+<h3>10. Should update?</h3>
+<p>Lets stop for a second here and look at the Kendal Component again</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">29</span>-shouldUpdate) cat -n src/js/components/kendal.js
+   ...
+     <span class="hljs-number">6</span>	  <span class="hljs-keyword">constructor</span>(){
+     <span class="hljs-number">7</span>	    <span class="hljs-keyword">super</span>()
+     <span class="hljs-number">8</span>	    <span class="hljs-keyword">this</span>.store = store
+     <span class="hljs-number">9</span>	    <span class="hljs-keyword">this</span>.store.subscribe(<span class="hljs-keyword">this</span>.render.bind(<span class="hljs-keyword">this</span>))
+    <span class="hljs-number">10</span>	  }
+   ...
+    <span class="hljs-number">16</span>	  connectedCallback() {
+    <span class="hljs-number">17</span>	    <span class="hljs-keyword">this</span>.render();
+    <span class="hljs-number">18</span>	    <span class="hljs-keyword">this</span>.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-keyword">this</span>.handleClick);
+    <span class="hljs-number">19</span>	  }
+</code></pre>
+<p>We have two ways of rendering the view, an initial render in the connectedCallback, for whenever we arrive at this page. And we’ve setup the subscriber function as well. Now this is fine in this particular case, as every time we increment we want that reflected. But what if our action here didn’t contain anything that should automatically trigger a re-render? In that case we could subscribe a shouldUpdate function to the store, instead of the render method and let it handle whether to render or not.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">29</span>-shouldUpdate) ✗ cat -n src/js/components/kendal.js
+   ...
+     <span class="hljs-number">6</span>	  <span class="hljs-keyword">constructor</span>(){
+     <span class="hljs-number">7</span>	    <span class="hljs-keyword">super</span>()
+     <span class="hljs-number">8</span>	    <span class="hljs-keyword">this</span>.store = store
+     <span class="hljs-number">9</span>	    <span class="hljs-keyword">this</span>.store.subscribe(<span class="hljs-keyword">this</span>.shouldUpdate.bind(<span class="hljs-keyword">this</span>))
+    <span class="hljs-number">10</span>	  }
+    <span class="hljs-number">11</span>
+    <span class="hljs-number">12</span>	  handleClick(){
+    <span class="hljs-number">13</span>	    <span class="hljs-keyword">this</span>.store.dispatch(increaseKendal(<span class="hljs-number">1</span>))
+    <span class="hljs-number">14</span>	  }
+    <span class="hljs-number">15</span>
+    <span class="hljs-number">16</span>	  connectedCallback() {
+    <span class="hljs-number">17</span>	    <span class="hljs-keyword">this</span>.render();
+    <span class="hljs-number">18</span>	    <span class="hljs-keyword">this</span>.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-keyword">this</span>.handleClick);
+    <span class="hljs-number">19</span>	  }
+    <span class="hljs-number">20</span>
+    <span class="hljs-number">21</span>	  shouldUpdate(){
+    <span class="hljs-number">22</span>	    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.store.previousState.kendal.counter != <span class="hljs-keyword">this</span>.store.state.kendal.counter){
+    <span class="hljs-number">23</span>	      <span class="hljs-keyword">this</span>.render()
+    <span class="hljs-number">24</span>	    }
+    <span class="hljs-number">25</span>	  }
+</code></pre>
+<p>Now the render method just runs, and the decision making on whether to run it is moved away completely, either to the router if we’re coming from another page, or the shouldUpdate function, if we’re already on the page and updating it</p>
+<p>Repo at stage 28: <a href="https://github.com/cerico/how-to-js-router/tree/0.28.0">https://github.com/cerico/how-to-js-router/tree/0.28.0</a></p>
+<h3>11. Unsubscribing</h3>
+<p>If we log in our render function, we now see we have a new problem.</p>
+<p>that render function is spiralling out of control, re-rendering far too many times. Whats going on? Well, each time we come to this page we’re adding the a subscriber function, we go to the Glossop page and then come back…and we add it again. and again and again. So we need to be able to remove functions from the subscriber array when we leave a page - and for that we’ll use the disconnectedCallback method - and attach that to an unsubscribe method in the store</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router gi<span class="hljs-variable">t:</span>(<span class="hljs-number">30</span>-unsubscribe) ✗ <span class="hljs-keyword">cat</span> -n src/js/store.js
+   ...
+    <span class="hljs-number">14</span>	Store.prototype.unsubscribe = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fn)</span>{</span>
+    <span class="hljs-number">15</span>	  console.<span class="hljs-built_in">log</span>(fn)
+    <span class="hljs-number">16</span>	}
+   ...
+</code></pre>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">30</span>-unsubscribe) ✗ cat -n src/js/components/kendal<span class="hljs-selector-class">.js</span>
+   ...
+    <span class="hljs-number">21</span>	  disconnectedCallback() {
+    <span class="hljs-number">22</span>	    this<span class="hljs-selector-class">.store</span><span class="hljs-selector-class">.unsubscribe</span>(<span class="hljs-string">"?"</span>)
+    <span class="hljs-number">23</span>	  }
+   ...
+</code></pre>
+<p>We can send the function to be unsubscribed but we should reference it first in the constructor, so we have something digestable to send to the unsubscribe function.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">30</span>-unsubscribe) cat -n src/js/components/kendal.js
+   ...
+     <span class="hljs-number">6</span>	  <span class="hljs-keyword">constructor</span>(){
+     <span class="hljs-number">7</span>	    <span class="hljs-keyword">super</span>()
+     <span class="hljs-number">8</span>	    <span class="hljs-keyword">this</span>.store = store
+     <span class="hljs-number">9</span>	    <span class="hljs-keyword">this</span>.subscriber = <span class="hljs-keyword">this</span>.shouldUpdate.bind(<span class="hljs-keyword">this</span>)
+    <span class="hljs-number">10</span>	    <span class="hljs-keyword">this</span>.store.subscribe(<span class="hljs-keyword">this</span>.subscriber)
+    <span class="hljs-number">11</span>	  }
+   ...
+    <span class="hljs-number">22</span>	  disconnectedCallback() {
+    <span class="hljs-number">23</span>	    <span class="hljs-keyword">this</span>.store.unsubscribe(<span class="hljs-keyword">this</span>.subscriber)
+    <span class="hljs-number">24</span>	  }
+   ...
+</code></pre>
+<p>And now we can remove this from the subscribers array in the store.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">30</span>-unsubscribe) cat -n src/js/store.js
+   ...
+    <span class="hljs-number">14</span>	<span class="hljs-type">Store</span>.proto<span class="hljs-keyword">type</span>.unsubscribe = function(fn){
+    15	  subscribers.splice(subscribers.indexOf(fn), 1);
+    16	}
+</code></pre>
+<p>Now we shouldn’t run into issues with duplicate subscribers and rendering</p>
+<p>Repo at stage 29: <a href="https://github.com/cerico/how-to-js-router/tree/0.29.0">https://github.com/cerico/how-to-js-router/tree/0.29.0</a></p>
+<h3>12. Return of pushState and backbutton</h3>
+<p>One thing you will have noticed, is our url isn’t changing anymore, and our back button doesn’t work. We’ll need to reintroduce these into our refactored router. Lets do that now.</p>
+<pre><code>➜  how-to-js-router git:(<span class="hljs-number">31</span>-back) cat -n src/js/delph.js
+   ...
+    <span class="hljs-number">13</span>	  render(previousState,<span class="hljs-keyword">state</span>){
+    <span class="hljs-number">14</span>	    if (previousState.route.path != <span class="hljs-keyword">state</span>.route.path ){
+    <span class="hljs-number">15</span>	      let page = <span class="hljs-keyword">state</span>.route.path
+    <span class="hljs-number">16</span>	      let back = <span class="hljs-keyword">state</span>.route.back
+    <span class="hljs-number">17</span>	      while (this.routerOutlet.firstChild) {
+    <span class="hljs-number">18</span>	        this.routerOutlet.removeChild(this.routerOutlet.firstChild);
+    <span class="hljs-number">19</span>	      }
+    <span class="hljs-number">20</span>	      if (!back){
+    <span class="hljs-number">21</span>	        history.pushState({ page}, null, `/${page}`);
+    <span class="hljs-number">22</span>	      }
+   ...
+</code></pre>
+<p>We can add a ‘back’ to our route object, and if its not present we can push the page into the history object, and update the url. Now we need to re-add the back button functionality</p>
+<pre><code>➜  how-<span class="hljs-keyword">to</span>-js-router git:(<span class="hljs-number">31</span>-back) ✗ cat -n src/js/delph.js
+   ...
+     <span class="hljs-number">5</span>	  <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(config)</span><span class="hljs-comment">{
+   ...
+    11	    this.handleBackButton(config.store)
+    12	  }</span>
+    13
+    14	  <span class="hljs-title">handleBackButton</span> = <span class="hljs-params">(store)</span> =&gt; <span class="hljs-comment">{
+    15
+    16	    window.onpopstate = (event) =&gt; {
+    17	      let content = "";
+    18	      if (event.state) {
+    19	        content = event.state.page;
+    20	        store.dispatch(loadRoute({path:content,back:true}</span>))
+    21	      }
+    22	    }
+    23	  }
+</span></code></pre>
+<p>We can pass the store to the handleBackButton function, and if the event state is present, we can pass that to the store’s dispatch action, along with a back true to signify the back button was used.</p>
+<p>Repo at stage 30: <a href="https://github.com/cerico/how-to-js-router/tree/0.30.0">https://github.com/cerico/how-to-js-router/tree/0.30.0</a></p>
+<h3>13. Next steps</h3>
+<p>In Part 6 we’ll look at nested routes, and multiple hierarchical components per page</p>
+<p>`</p>
+</div><div data-reactid="34"><span style="display:inline;" data-reactid="35"><span style="margin-right:8px;line-height:1.5;" data-reactid="36"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#es6" data-reactid="37">ES6</a><span data-reactid="38">,</span></span><span style="margin-right:8px;line-height:1.5;" data-reactid="39"><a style="color:rgb(158, 171, 179);display:inline-block;" href="/tags/#javascript" data-reactid="40">Javascript</a><span data-reactid="41"></span></span></span><hr style="margin-top:1.07rem;" data-reactid="42"/><p style="margin-bottom:0.33rem;" data-reactid="43"><a href="/about/" data-reactid="44"><img src="https://s3.eu-west-2.amazonaws.com/io1937/ghpages/linkedin.jpg" style="float:left;margin-top:0;margin-bottom:0;margin-right:0.4125rem;width:3.3rem;height:3.3rem;border-radius:50%;border:1px gray solid;" data-reactid="45"/></a><span data-reactid="46"><!-- react-text: 47 -->garethrobertlee<!-- /react-text --><a href="/about/" data-reactid="48"></a></span></p><div data-reactid="49"><div data-reactid="50"><span data-reactid="51"><a href="/" data-reactid="52">Posts | </a><a href="/about/" data-reactid="53">About | </a></span><a href="mailto:garethrobertlee@gmail.com?Subject=Hello" target="blank_" data-reactid="54">Contact</a></div></div></div></div></div></div><script src="/bundle.js?t=1506883050352"></script></body></html>
